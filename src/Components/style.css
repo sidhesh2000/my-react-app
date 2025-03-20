@@ -1,0 +1,3071 @@
+.box {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+  }
+  
+  .box .property-default-wrapper {
+    border: 0px none;
+    height: 680px;
+    width: 1440px;
+  }
+  
+  .box .property-default {
+    height: 680px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .box .overlap {
+    height: 680px;
+    position: relative;
+  }
+  
+  .box .frame {
+     /* background-image: url(./frame-427319153.png); */
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 680px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .box .group {
+    background-color: #ff82824c;
+    border-radius: 189px;
+    height: 378px;
+    left: 5904px;
+    position: absolute;
+    top: -6978px;
+    width: 378px;
+  }
+  
+  .box .div-wrapper {
+    height: 176px;
+    left: 123px;
+    position: relative;
+    top: 101px;
+    width: 134px;
+  }
+  
+  .box .text-wrapper {
+    color: #f5f5f5;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 150px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .box .overlap-group {
+    height: 1176px;
+    left: 50px;
+    position: absolute;
+    top: -679px;
+    width: 1432px;
+  }
+  
+  .box .ellipse {
+    background-color: #407bff;
+    border-radius: 588px;
+    height: 1176px;
+    left: 256px;
+    position: absolute;
+    top: 0;
+    width: 1176px;
+  }
+  
+  .box .mask-group {
+    height: 497px;
+    left: 256px;
+    position: absolute;
+    top: 679px;
+    width: 1134px;
+  }
+  
+  
+  .box .content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 245px;
+    left: 0;
+    position: absolute;
+    top: 913px;
+    width: 341px;
+  }
+  
+  .box .h-1 {
+    color: #263238;
+    font-family: "Inter", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 66px;
+    margin-right: -82px;
+    margin-top: -1px;
+    position: relative;
+    width: 423px;
+    text-align: start;
+  }
+  
+  .box .div {
+    color: #407bff;
+    font-family: "Poppins", Helvetica;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .box .p {
+    color: #000000;
+    font-family: "Poppins", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    height: 85px;
+    letter-spacing: 0.56px;
+    line-height: 23.8px;
+    margin-bottom: -37px;
+    position: relative;
+    width: 341px;
+    text-align: start;
+  }
+  
+  
+  .box .vector {
+    height: 74px;
+    left: 709px;
+    position: absolute;
+    top: 876px;
+    width: 79px;
+  }
+  
+  .box .hybrid-round {
+    height: 74px;
+    left: 571px;
+    position: absolute;
+    top: 1008px;
+    width: 79px;
+  }
+  
+  .box .cost-round {
+    height: 74px;
+    left: 918px;
+    position: absolute;
+    top: 846px;
+    width: 79px;
+  }
+  
+  .box .secured-round {
+    height: 74px;
+    left: 1076px;
+    position: absolute;
+    top: 967px;
+    width: 79px;
+  }
+  
+  .box .hunt-now-button {
+    height: 50px;
+    left: 50px;
+    position: absolute;
+    top: 578px;
+    width: 165px;
+  }
+  
+  .box .overlap-group-2 {
+    background-color: #407bff;
+    border-radius: 48px;
+    height: 50px;
+    position: relative;
+    width: 163px;
+  }
+  
+  .box .text-wrapper-2 {
+    color: #f5f5f5;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    height: 50px;
+    left: 0;
+    letter-spacing: 0.56px;
+    line-height: 23.8px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 163px;
+    padding-top: 15px;
+  }
+  
+  .box .ion-navigate-circle {
+    height: 57px;
+    left: 643px;
+    position: absolute;
+    top: 534px;
+    width: 57px;
+  }
+  
+  .box .img {
+    height: 57px;
+    left: 1200px;
+    position: absolute;
+    top: 528px;
+    width: 57px;
+  }
+  
+  .box .line {
+    height: 10px;
+    left: 0;
+    position: absolute;
+    top: 670px;
+    width: 1440px;
+  }
+  
+  .box .group-2 {
+    height: 322px;
+    left: 781px;
+    position: absolute;
+    top: 283px;
+    width: 314px;
+  }
+  
+  .box .vector-2 {
+    height: 40px;
+    left: 125px;
+    position: absolute;
+    top: 0;
+    width: 63px;
+  }
+  
+  .box .vector-3 {
+    height: 2px;
+    left: 176px;
+    position: absolute;
+    top: 1px;
+    width: 1px;
+  }
+  
+  .box .vector-4 {
+    height: 5px;
+    left: 127px;
+    position: absolute;
+    top: 3px;
+    width: 5px;
+  }
+  
+  .box .vector-5 {
+    height: 1px;
+    left: 173px;
+    position: absolute;
+    top: 5px;
+    width: 2px;
+  }
+  
+  .box .vector-6 {
+    height: 1px;
+    left: 178px;
+    position: absolute;
+    top: 5px;
+    width: 2px;
+  }
+  
+  .box .vector-7 {
+    height: 15px;
+    left: 186px;
+    position: absolute;
+    top: 5px;
+    width: 23px;
+  }
+  
+  .box .vector-8 {
+    height: 2px;
+    left: 115px;
+    position: absolute;
+    top: 5px;
+    width: 1px;
+  }
+  
+  .box .vector-9 {
+    height: 2px;
+    left: 176px;
+    position: absolute;
+    top: 7px;
+    width: 1px;
+  }
+  
+  .box .vector-10 {
+    height: 1px;
+    left: 112px;
+    position: absolute;
+    top: 9px;
+    width: 2px;
+  }
+  
+  .box .vector-11 {
+    height: 1px;
+    left: 117px;
+    position: absolute;
+    top: 9px;
+    width: 2px;
+  }
+  
+  .box .vector-12 {
+    height: 2px;
+    left: 115px;
+    position: absolute;
+    top: 10px;
+    width: 1px;
+  }
+  
+  .box .vector-13 {
+    height: 50px;
+    left: 62px;
+    position: absolute;
+    top: 13px;
+    width: 51px;
+  }
+  
+  .box .vector-14 {
+    height: 1px;
+    left: 94px;
+    position: absolute;
+    top: 30px;
+    width: 12px;
+  }
+  
+  .box .vector-15 {
+    height: 1px;
+    left: 94px;
+    position: absolute;
+    top: 39px;
+    width: 12px;
+  }
+  
+  .box .vector-16 {
+    height: 1px;
+    left: 69px;
+    position: absolute;
+    top: 48px;
+    width: 12px;
+  }
+  
+  .box .vector-17 {
+    height: 1px;
+    left: 69px;
+    position: absolute;
+    top: 57px;
+    width: 12px;
+  }
+  
+  .box .vector-18 {
+    height: 6px;
+    left: 218px;
+    position: absolute;
+    top: 14px;
+    width: 5px;
+  }
+  
+  .box .vector-19 {
+    height: 3px;
+    left: 77px;
+    position: absolute;
+    top: 22px;
+    width: 3px;
+  }
+  
+  .box .vector-20 {
+    height: 2px;
+    left: 235px;
+    position: absolute;
+    top: 22px;
+    width: 1px;
+  }
+  
+  .box .vector-21 {
+    height: 26px;
+    left: 197px;
+    position: absolute;
+    top: 24px;
+    width: 32px;
+  }
+  
+  .box .vector-22 {
+    height: 1px;
+    left: 231px;
+    position: absolute;
+    top: 25px;
+    width: 2px;
+  }
+  
+  .box .vector-23 {
+    height: 1px;
+    left: 237px;
+    position: absolute;
+    top: 25px;
+    width: 2px;
+  }
+  
+  .box .vector-24 {
+    height: 2px;
+    left: 235px;
+    position: absolute;
+    top: 27px;
+    width: 1px;
+  }
+  
+  .box .vector-25 {
+    height: 1px;
+    left: 232px;
+    position: absolute;
+    top: 34px;
+    width: 2px;
+  }
+  
+  .box .vector-26 {
+    height: 1px;
+    left: 237px;
+    position: absolute;
+    top: 34px;
+    width: 2px;
+  }
+  
+  .box .vector-27 {
+    height: 1px;
+    left: 241px;
+    position: absolute;
+    top: 34px;
+    width: 2px;
+  }
+  
+  .box .vector-28 {
+    height: 1px;
+    left: 245px;
+    position: absolute;
+    top: 34px;
+    width: 2px;
+  }
+  
+  .box .vector-29 {
+    height: 1px;
+    left: 249px;
+    position: absolute;
+    top: 34px;
+    width: 2px;
+  }
+  
+  .box .vector-30 {
+    height: 2px;
+    left: 120px;
+    position: absolute;
+    top: 34px;
+    width: 1px;
+  }
+  
+  .box .vector-31 {
+    height: 1px;
+    left: 117px;
+    position: absolute;
+    top: 37px;
+    width: 2px;
+  }
+  
+  .box .vector-32 {
+    height: 1px;
+    left: 122px;
+    position: absolute;
+    top: 37px;
+    width: 2px;
+  }
+  
+  .box .vector-33 {
+    height: 2px;
+    left: 249px;
+    position: absolute;
+    top: 37px;
+    width: 1px;
+  }
+  
+  .box .vector-34 {
+    height: 2px;
+    left: 120px;
+    position: absolute;
+    top: 39px;
+    width: 1px;
+  }
+  
+  .box .vector-35 {
+    height: 3px;
+    left: 259px;
+    position: absolute;
+    top: 41px;
+    width: 3px;
+  }
+  
+  .box .vector-36 {
+    height: 2px;
+    left: 249px;
+    position: absolute;
+    top: 42px;
+    width: 1px;
+  }
+  
+  .box .vector-37 {
+    height: 4px;
+    left: 52px;
+    position: absolute;
+    top: 43px;
+    width: 1px;
+  }
+  
+  .box .vector-38 {
+    height: 17px;
+    left: 130px;
+    position: absolute;
+    top: 44px;
+    width: 15px;
+  }
+  
+  .box .vector-39 {
+    height: 17px;
+    left: 153px;
+    position: absolute;
+    top: 44px;
+    width: 8px;
+  }
+  
+  .box .vector-40 {
+    height: 17px;
+    left: 168px;
+    position: absolute;
+    top: 44px;
+    width: 15px;
+  }
+  
+  .box .vector-41 {
+    height: 35px;
+    left: 93px;
+    position: absolute;
+    top: 45px;
+    width: 32px;
+  }
+  
+  .box .vector-42 {
+    height: 8px;
+    left: 113px;
+    position: absolute;
+    top: 49px;
+    width: 8px;
+  }
+  
+  .box .vector-43 {
+    height: 2px;
+    left: 47px;
+    position: absolute;
+    top: 46px;
+    width: 3px;
+  }
+  
+  .box .vector-44 {
+    height: 6px;
+    left: 247px;
+    position: absolute;
+    top: 46px;
+    width: 6px;
+  }
+  
+  .box .vector-45 {
+    height: 2px;
+    left: 54px;
+    position: absolute;
+    top: 46px;
+    width: 3px;
+  }
+  
+  .box .vector-46 {
+    height: 3px;
+    left: 188px;
+    position: absolute;
+    top: 46px;
+    width: 3px;
+  }
+  
+  .box .vector-47 {
+    height: 1px;
+    left: 94px;
+    position: absolute;
+    top: 49px;
+    width: 9px;
+  }
+  
+  .box .vector-48 {
+    height: 15px;
+    left: 259px;
+    position: absolute;
+    top: 50px;
+    width: 14px;
+  }
+  
+  .box .vector-49 {
+    height: 2px;
+    left: 47px;
+    position: absolute;
+    top: 50px;
+    width: 3px;
+  }
+  
+  .box .vector-50 {
+    height: 2px;
+    left: 54px;
+    position: absolute;
+    top: 51px;
+    width: 3px;
+  }
+  
+  .box .vector-51 {
+    height: 4px;
+    left: 52px;
+    position: absolute;
+    top: 52px;
+    width: 1px;
+  }
+  
+  .box .vector-52 {
+    height: 6px;
+    left: 199px;
+    position: absolute;
+    top: 53px;
+    width: 6px;
+  }
+  
+  .box .vector-53 {
+    height: 7px;
+    left: 262px;
+    position: absolute;
+    top: 54px;
+    width: 8px;
+  }
+  
+  .box .vector-54 {
+    height: 28px;
+    left: 222px;
+    position: absolute;
+    top: 55px;
+    width: 32px;
+  }
+  
+  .box .vector-55 {
+    height: 2px;
+    left: 230px;
+    position: absolute;
+    top: 59px;
+    width: 2px;
+  }
+  
+  .box .vector-56 {
+    height: 2px;
+    left: 227px;
+    position: absolute;
+    top: 62px;
+    width: 2px;
+  }
+  
+  .box .vector-57 {
+    height: 8px;
+    left: 228px;
+    position: absolute;
+    top: 62px;
+    width: 8px;
+  }
+  
+  .box .vector-58 {
+    height: 41px;
+    left: 19px;
+    position: absolute;
+    top: 58px;
+    width: 64px;
+  }
+  
+  .box .vector-59 {
+    height: 2px;
+    left: 201px;
+    position: absolute;
+    top: 61px;
+    width: 1px;
+  }
+  
+  .box .vector-60 {
+    height: 5px;
+    left: 189px;
+    position: absolute;
+    top: 62px;
+    width: 5px;
+  }
+  
+  .box .vector-61 {
+    height: 3px;
+    left: 90px;
+    position: absolute;
+    top: 62px;
+    width: 3px;
+  }
+  
+  .box .vector-62 {
+    height: 2px;
+    left: 201px;
+    position: absolute;
+    top: 66px;
+    width: 1px;
+  }
+  
+  .box .vector-63 {
+    height: 54px;
+    left: 243px;
+    position: absolute;
+    top: 67px;
+    width: 42px;
+  }
+  
+  .box .vector-64 {
+    height: 23px;
+    left: 278px;
+    position: absolute;
+    top: 70px;
+    width: 11px;
+  }
+  
+  .box .vector-65 {
+    height: 1px;
+    left: 201px;
+    position: absolute;
+    top: 71px;
+    width: 2px;
+  }
+  
+  .box .vector-66 {
+    height: 1px;
+    left: 205px;
+    position: absolute;
+    top: 71px;
+    width: 2px;
+  }
+  
+  .box .vector-67 {
+    height: 1px;
+    left: 209px;
+    position: absolute;
+    top: 71px;
+    width: 2px;
+  }
+  
+  .box .vector-68 {
+    height: 1px;
+    left: 213px;
+    position: absolute;
+    top: 71px;
+    width: 2px;
+  }
+  
+  .box .vector-69 {
+    height: 1px;
+    left: 217px;
+    position: absolute;
+    top: 71px;
+    width: 2px;
+  }
+  
+  .box .vector-70 {
+    height: 6px;
+    left: 83px;
+    position: absolute;
+    top: 74px;
+    width: 5px;
+  }
+  
+  .box .vector-71 {
+    height: 3px;
+    left: 215px;
+    position: absolute;
+    top: 78px;
+    width: 3px;
+  }
+  
+  .box .vector-72 {
+    height: 6px;
+    left: 290px;
+    position: absolute;
+    top: 84px;
+    width: 5px;
+  }
+  
+  .box .vector-73 {
+    height: 7px;
+    left: 35px;
+    position: absolute;
+    top: 87px;
+    width: 28px;
+  }
+  
+  .box .vector-74 {
+    height: 9px;
+    left: 229px;
+    position: absolute;
+    top: 89px;
+    width: 10px;
+  }
+  
+  .box .vector-75 {
+    height: 6px;
+    left: 243px;
+    position: absolute;
+    top: 90px;
+    width: 5px;
+  }
+  
+  .box .vector-76 {
+    height: 1px;
+    left: 64px;
+    position: absolute;
+    top: 91px;
+    width: 1px;
+  }
+  
+  .box .vector-77 {
+    height: 2px;
+    left: 65px;
+    position: absolute;
+    top: 92px;
+    width: 2px;
+  }
+  
+  .box .vector-78 {
+    height: 5px;
+    left: 39px;
+    position: absolute;
+    top: 93px;
+    width: 23px;
+  }
+  
+  .box .vector-79 {
+    height: 4px;
+    left: 296px;
+    position: absolute;
+    top: 97px;
+    width: 1px;
+  }
+  
+  .box .vector-80 {
+    height: 2px;
+    left: 291px;
+    position: absolute;
+    top: 99px;
+    width: 3px;
+  }
+  
+  .box .vector-81 {
+    height: 4px;
+    left: 43px;
+    position: absolute;
+    top: 99px;
+    width: 15px;
+  }
+  
+  .box .vector-82 {
+    height: 2px;
+    left: 298px;
+    position: absolute;
+    top: 100px;
+    width: 3px;
+  }
+  
+  .box .vector-83 {
+    height: 3px;
+    left: 279px;
+    position: absolute;
+    top: 100px;
+    width: 3px;
+  }
+  
+  .box .vector-84 {
+    height: 15px;
+    left: 7px;
+    position: absolute;
+    top: 101px;
+    width: 23px;
+  }
+  
+  .box .vector-85 {
+    height: 2px;
+    left: 291px;
+    position: absolute;
+    top: 104px;
+    width: 3px;
+  }
+  
+  .box .vector-86 {
+    height: 2px;
+    left: 298px;
+    position: absolute;
+    top: 104px;
+    width: 3px;
+  }
+  
+  .box .vector-87 {
+    height: 5px;
+    left: 49px;
+    position: absolute;
+    top: 105px;
+    width: 4px;
+  }
+  
+  .box .vector-88 {
+    height: 2px;
+    left: 69px;
+    position: absolute;
+    top: 105px;
+    width: 1px;
+  }
+  
+  .box .vector-89 {
+    height: 4px;
+    left: 296px;
+    position: absolute;
+    top: 106px;
+    width: 1px;
+  }
+  
+  .box .vector-90 {
+    height: 1px;
+    left: 65px;
+    position: absolute;
+    top: 108px;
+    width: 2px;
+  }
+  
+  .box .vector-91 {
+    height: 1px;
+    left: 71px;
+    position: absolute;
+    top: 108px;
+    width: 2px;
+  }
+  
+  .box .vector-92 {
+    height: 28px;
+    left: 266px;
+    position: absolute;
+    top: 109px;
+    width: 44px;
+  }
+  
+  .box .vector-93 {
+    height: 2px;
+    left: 69px;
+    position: absolute;
+    top: 110px;
+    width: 1px;
+  }
+  
+  .box .vector-94 {
+    height: 9px;
+    left: 35px;
+    position: absolute;
+    top: 112px;
+    width: 10px;
+  }
+  
+  .box .vector-95 {
+    height: 6px;
+    left: 62px;
+    position: absolute;
+    top: 117px;
+    width: 5px;
+  }
+  
+  .box .vector-96 {
+    height: 50px;
+    left: 2px;
+    position: absolute;
+    top: 124px;
+    width: 57px;
+  }
+  
+  .box .vector-97 {
+    height: 19px;
+    left: 8px;
+    position: absolute;
+    top: 128px;
+    width: 21px;
+  }
+  
+  .box .vector-98 {
+    height: 31px;
+    left: 16px;
+    position: absolute;
+    top: 129px;
+    width: 30px;
+  }
+  
+  .box .vector-99 {
+    height: 7px;
+    left: 15px;
+    position: absolute;
+    top: 136px;
+    width: 7px;
+  }
+  
+  .box .vector-100 {
+    height: 20px;
+    left: 33px;
+    position: absolute;
+    top: 142px;
+    width: 21px;
+  }
+  
+  .box .vector-101 {
+    height: 7px;
+    left: 40px;
+    position: absolute;
+    top: 146px;
+    width: 7px;
+  }
+  
+  .box .vector-102 {
+    height: 19px;
+    left: 282px;
+    position: absolute;
+    top: 126px;
+    width: 13px;
+  }
+  
+  .box .vector-103 {
+    height: 2px;
+    left: 255px;
+    position: absolute;
+    top: 129px;
+    width: 1px;
+  }
+  
+  .box .vector-104 {
+    height: 1px;
+    left: 251px;
+    position: absolute;
+    top: 132px;
+    width: 2px;
+  }
+  
+  .box .vector-105 {
+    height: 1px;
+    left: 257px;
+    position: absolute;
+    top: 132px;
+    width: 2px;
+  }
+  
+  .box .vector-106 {
+    height: 2px;
+    left: 255px;
+    position: absolute;
+    top: 134px;
+    width: 1px;
+  }
+  
+  .box .vector-107 {
+    height: 5px;
+    left: 262px;
+    position: absolute;
+    top: 138px;
+    width: 5px;
+  }
+  
+  .box .vector-108 {
+    height: 5px;
+    left: 307px;
+    position: absolute;
+    top: 145px;
+    width: 5px;
+  }
+  
+  .box .vector-109 {
+    height: 33px;
+    left: 252px;
+    position: absolute;
+    top: 149px;
+    width: 48px;
+  }
+  
+  .box .vector-110 {
+    height: 2px;
+    left: 266px;
+    position: absolute;
+    top: 154px;
+    width: 2px;
+  }
+  
+  .box .vector-111 {
+    height: 10px;
+    left: 262px;
+    position: absolute;
+    top: 156px;
+    width: 10px;
+  }
+  
+  .box .vector-112 {
+    height: 30px;
+    left: 287px;
+    position: absolute;
+    top: 158px;
+    width: 20px;
+  }
+  
+  .box .vector-113 {
+    height: 2px;
+    left: 261px;
+    position: absolute;
+    top: 159px;
+    width: 2px;
+  }
+  
+  .box .vector-114 {
+    height: 3px;
+    left: 52px;
+    position: absolute;
+    top: 170px;
+    width: 3px;
+  }
+  
+  .box .vector-115 {
+    height: 2px;
+    left: 3px;
+    position: absolute;
+    top: 171px;
+    width: 1px;
+  }
+  
+  .box .vector-116 {
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 174px;
+    width: 2px;
+  }
+  
+  .box .vector-117 {
+    height: 1px;
+    left: 5px;
+    position: absolute;
+    top: 174px;
+    width: 2px;
+  }
+  
+  .box .vector-118 {
+    height: 19px;
+    left: 300px;
+    position: absolute;
+    top: 174px;
+    width: 12px;
+  }
+  
+  .box .vector-119 {
+    height: 2px;
+    left: 3px;
+    position: absolute;
+    top: 176px;
+    width: 1px;
+  }
+  
+  .box .vector-120 {
+    height: 50px;
+    left: 10px;
+    position: absolute;
+    top: 181px;
+    width: 52px;
+  }
+  
+  .box .vector-121 {
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-122 {
+    height: 1px;
+    left: 24px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-123 {
+    height: 1px;
+    left: 28px;
+    position: absolute;
+    top: 193px;
+    width: 1px;
+  }
+  
+  .box .vector-124 {
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-125 {
+    height: 1px;
+    left: 24px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-126 {
+    height: 1px;
+    left: 28px;
+    position: absolute;
+    top: 197px;
+    width: 1px;
+  }
+  
+  .box .vector-127 {
+    height: 1px;
+    left: 35px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-128 {
+    height: 1px;
+    left: 38px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-129 {
+    height: 1px;
+    left: 42px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-130 {
+    height: 1px;
+    left: 35px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-131 {
+    height: 1px;
+    left: 39px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-132 {
+    height: 1px;
+    left: 42px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-133 {
+    height: 1px;
+    left: 50px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-134 {
+    height: 1px;
+    left: 53px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-135 {
+    height: 1px;
+    left: 57px;
+    position: absolute;
+    top: 193px;
+    width: 2px;
+  }
+  
+  .box .vector-136 {
+    height: 1px;
+    left: 50px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-137 {
+    height: 1px;
+    left: 53px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-138 {
+    height: 1px;
+    left: 57px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-139 {
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-140 {
+    height: 1px;
+    left: 24px;
+    position: absolute;
+    top: 204px;
+    width: 1px;
+  }
+  
+  .box .vector-141 {
+    height: 1px;
+    left: 28px;
+    position: absolute;
+    top: 204px;
+    width: 1px;
+  }
+  
+  .box .vector-142 {
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-143 {
+    height: 1px;
+    left: 24px;
+    position: absolute;
+    top: 208px;
+    width: 1px;
+  }
+  
+  .box .vector-144 {
+    height: 1px;
+    left: 28px;
+    position: absolute;
+    top: 208px;
+    width: 1px;
+  }
+  
+  .box .vector-145 {
+    height: 1px;
+    left: 35px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-146 {
+    height: 1px;
+    left: 39px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-147 {
+    height: 1px;
+    left: 42px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-148 {
+    height: 1px;
+    left: 50px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-149 {
+    height: 1px;
+    left: 53px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-150 {
+    height: 1px;
+    left: 57px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-151 {
+    height: 1px;
+    left: 35px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-152 {
+    height: 1px;
+    left: 38px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-153 {
+    height: 1px;
+    left: 42px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-154 {
+    height: 1px;
+    left: 50px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-155 {
+    height: 1px;
+    left: 53px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-156 {
+    height: 1px;
+    left: 57px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-157 {
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    top: 216px;
+    width: 2px;
+  }
+  
+  .box .vector-158 {
+    height: 1px;
+    left: 24px;
+    position: absolute;
+    top: 216px;
+    width: 2px;
+  }
+  
+  .box .vector-159 {
+    height: 1px;
+    left: 28px;
+    position: absolute;
+    top: 216px;
+    width: 1px;
+  }
+  
+  .box .vector-160 {
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-161 {
+    height: 1px;
+    left: 24px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-162 {
+    height: 1px;
+    left: 28px;
+    position: absolute;
+    top: 219px;
+    width: 1px;
+  }
+  
+  .box .vector-163 {
+    height: 1px;
+    left: 35px;
+    position: absolute;
+    top: 215px;
+    width: 2px;
+  }
+  
+  .box .vector-164 {
+    height: 1px;
+    left: 39px;
+    position: absolute;
+    top: 216px;
+    width: 2px;
+  }
+  
+  .box .vector-165 {
+    height: 1px;
+    left: 42px;
+    position: absolute;
+    top: 216px;
+    width: 2px;
+  }
+  
+  .box .vector-166 {
+    height: 1px;
+    left: 35px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-167 {
+    height: 1px;
+    left: 38px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-168 {
+    height: 1px;
+    left: 42px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-169 {
+    height: 1px;
+    left: 49px;
+    position: absolute;
+    top: 216px;
+    width: 2px;
+  }
+  
+  .box .vector-170 {
+    height: 1px;
+    left: 53px;
+    position: absolute;
+    top: 215px;
+    width: 2px;
+  }
+  
+  .box .vector-171 {
+    height: 1px;
+    left: 57px;
+    position: absolute;
+    top: 216px;
+    width: 2px;
+  }
+  
+  .box .vector-172 {
+    height: 1px;
+    left: 49px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-173 {
+    height: 1px;
+    left: 53px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-174 {
+    height: 1px;
+    left: 57px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-175 {
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    top: 227px;
+    width: 5px;
+  }
+  
+  .box .vector-176 {
+    height: 1px;
+    left: 28px;
+    position: absolute;
+    top: 227px;
+    width: 2px;
+  }
+  
+  .box .vector-177 {
+    height: 1px;
+    left: 35px;
+    position: absolute;
+    top: 227px;
+    width: 5px;
+  }
+  
+  .box .vector-178 {
+    height: 1px;
+    left: 42px;
+    position: absolute;
+    top: 227px;
+    width: 2px;
+  }
+  
+  .box .vector-179 {
+    height: 1px;
+    left: 50px;
+    position: absolute;
+    top: 227px;
+    width: 5px;
+  }
+  
+  .box .vector-180 {
+    height: 1px;
+    left: 57px;
+    position: absolute;
+    top: 227px;
+    width: 2px;
+  }
+  
+  .box .vector-181 {
+    height: 1px;
+    left: 296px;
+    position: absolute;
+    top: 184px;
+    width: 2px;
+  }
+  
+  .box .vector-182 {
+    height: 3px;
+    left: 253px;
+    position: absolute;
+    top: 188px;
+    width: 3px;
+  }
+  
+  .box .vector-183 {
+    height: 6px;
+    left: 279px;
+    position: absolute;
+    top: 188px;
+    width: 5px;
+  }
+  
+  .box .vector-184 {
+    height: 1px;
+    left: 305px;
+    position: absolute;
+    top: 189px;
+    width: 2px;
+  }
+  
+  .box .vector-185 {
+    height: 2px;
+    left: 262px;
+    position: absolute;
+    top: 195px;
+    width: 2px;
+  }
+  
+  .box .vector-186 {
+    height: 2px;
+    left: 266px;
+    position: absolute;
+    top: 195px;
+    width: 2px;
+  }
+  
+  .box .vector-187 {
+    height: 2px;
+    left: 270px;
+    position: absolute;
+    top: 195px;
+    width: 2px;
+  }
+  
+  .box .vector-188 {
+    height: 2px;
+    left: 259px;
+    position: absolute;
+    top: 196px;
+    width: 2px;
+  }
+  
+  .box .vector-189 {
+    height: 2px;
+    left: 273px;
+    position: absolute;
+    top: 196px;
+    width: 2px;
+  }
+  
+  .box .vector-190 {
+    height: 2px;
+    left: 255px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-191 {
+    height: 2px;
+    left: 277px;
+    position: absolute;
+    top: 197px;
+    width: 2px;
+  }
+  
+  .box .vector-192 {
+    height: 15px;
+    left: 293px;
+    position: absolute;
+    top: 197px;
+    width: 14px;
+  }
+  
+  .box .vector-193 {
+    height: 7px;
+    left: 297px;
+    position: absolute;
+    top: 201px;
+    width: 8px;
+  }
+  
+  .box .vector-194 {
+    height: 2px;
+    left: 252px;
+    position: absolute;
+    top: 199px;
+    width: 2px;
+  }
+  
+  .box .vector-195 {
+    height: 2px;
+    left: 280px;
+    position: absolute;
+    top: 199px;
+    width: 2px;
+  }
+  
+  .box .vector-196 {
+    height: 38px;
+    left: 248px;
+    position: absolute;
+    top: 201px;
+    width: 38px;
+  }
+  
+  .box .vector-197 {
+    height: 2px;
+    left: 249px;
+    position: absolute;
+    top: 201px;
+    width: 2px;
+  }
+  
+  .box .vector-198 {
+    height: 2px;
+    left: 283px;
+    position: absolute;
+    top: 202px;
+    width: 2px;
+  }
+  
+  .box .vector-199 {
+    height: 2px;
+    left: 246px;
+    position: absolute;
+    top: 204px;
+    width: 2px;
+  }
+  
+  .box .vector-200 {
+    height: 2px;
+    left: 285px;
+    position: absolute;
+    top: 205px;
+    width: 2px;
+  }
+  
+  .box .vector-201 {
+    height: 2px;
+    left: 245px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-202 {
+    height: 2px;
+    left: 287px;
+    position: absolute;
+    top: 208px;
+    width: 2px;
+  }
+  
+  .box .vector-203 {
+    height: 2px;
+    left: 243px;
+    position: absolute;
+    top: 211px;
+    width: 2px;
+  }
+  
+  .box .vector-204 {
+    height: 2px;
+    left: 289px;
+    position: absolute;
+    top: 212px;
+    width: 2px;
+  }
+  
+  .box .vector-205 {
+    height: 2px;
+    left: 242px;
+    position: absolute;
+    top: 215px;
+    width: 2px;
+  }
+  
+  .box .vector-206 {
+    height: 2px;
+    left: 71px;
+    position: absolute;
+    top: 215px;
+    width: 1px;
+  }
+  
+  .box .vector-207 {
+    height: 2px;
+    left: 290px;
+    position: absolute;
+    top: 215px;
+    width: 2px;
+  }
+  
+  .box .vector-208 {
+    height: 1px;
+    left: 68px;
+    position: absolute;
+    top: 218px;
+    width: 2px;
+  }
+  
+  .box .vector-209 {
+    height: 1px;
+    left: 74px;
+    position: absolute;
+    top: 218px;
+    width: 2px;
+  }
+  
+  .box .vector-210 {
+    height: 2px;
+    left: 242px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-211 {
+    height: 3px;
+    left: 299px;
+    position: absolute;
+    top: 219px;
+    width: 3px;
+  }
+  
+  .box .vector-212 {
+    height: 2px;
+    left: 290px;
+    position: absolute;
+    top: 219px;
+    width: 2px;
+  }
+  
+  .box .vector-213 {
+    height: 2px;
+    left: 71px;
+    position: absolute;
+    top: 220px;
+    width: 1px;
+  }
+  
+  .box .vector-214 {
+    height: 2px;
+    left: 242px;
+    position: absolute;
+    top: 223px;
+    width: 2px;
+  }
+  
+  .box .vector-215 {
+    height: 2px;
+    left: 290px;
+    position: absolute;
+    top: 223px;
+    width: 2px;
+  }
+  
+  .box .vector-216 {
+    height: 2px;
+    left: 243px;
+    position: absolute;
+    top: 226px;
+    width: 2px;
+  }
+  
+  .box .vector-217 {
+    height: 1px;
+    left: 289px;
+    position: absolute;
+    top: 227px;
+    width: 2px;
+  }
+  
+  .box .vector-218 {
+    height: 5px;
+    left: 287px;
+    position: absolute;
+    top: 228px;
+    width: 4px;
+  }
+  
+  .box .vector-219 {
+    height: 11px;
+    left: 70px;
+    position: absolute;
+    top: 228px;
+    width: 18px;
+  }
+  
+  .box .vector-220 {
+    height: 18px;
+    left: 264px;
+    position: absolute;
+    top: 229px;
+    width: 29px;
+  }
+  
+  .box .vector-221 {
+    height: 2px;
+    left: 244px;
+    position: absolute;
+    top: 230px;
+    width: 2px;
+  }
+  
+  .box .vector-222 {
+    height: 15px;
+    left: 220px;
+    position: absolute;
+    top: 232px;
+    width: 23px;
+  }
+  
+  .box .vector-223 {
+    height: 2px;
+    left: 246px;
+    position: absolute;
+    top: 233px;
+    width: 2px;
+  }
+  
+  .box .vector-224 {
+    height: 9px;
+    left: 67px;
+    position: absolute;
+    top: 235px;
+    width: 5px;
+  }
+  
+  .box .vector-225 {
+    height: 2px;
+    left: 248px;
+    position: absolute;
+    top: 236px;
+    width: 2px;
+  }
+  
+  .box .vector-226 {
+    height: 3px;
+    left: 36px;
+    position: absolute;
+    top: 237px;
+    width: 3px;
+  }
+  
+  .box .vector-227 {
+    height: 6px;
+    left: 19px;
+    position: absolute;
+    top: 238px;
+    width: 5px;
+  }
+  
+  .box .vector-228 {
+    height: 2px;
+    left: 250px;
+    position: absolute;
+    top: 239px;
+    width: 2px;
+  }
+  
+  .box .vector-229 {
+    height: 28px;
+    left: 28px;
+    position: absolute;
+    top: 239px;
+    width: 33px;
+  }
+  
+  .box .vector-230 {
+    height: 8px;
+    left: 44px;
+    position: absolute;
+    top: 248px;
+    width: 8px;
+  }
+  
+  .box .vector-231 {
+    height: 2px;
+    left: 253px;
+    position: absolute;
+    top: 241px;
+    width: 2px;
+  }
+  
+  .box .vector-232 {
+    height: 5px;
+    left: 73px;
+    position: absolute;
+    top: 241px;
+    width: 13px;
+  }
+  
+  .box .vector-233 {
+    height: 2px;
+    left: 257px;
+    position: absolute;
+    top: 243px;
+    width: 2px;
+  }
+  
+  .box .vector-234 {
+    height: 2px;
+    left: 260px;
+    position: absolute;
+    top: 244px;
+    width: 2px;
+  }
+  
+  .box .vector-235 {
+    height: 20px;
+    left: 87px;
+    position: absolute;
+    top: 245px;
+    width: 13px;
+  }
+  
+  .box .vector-236 {
+    height: 31px;
+    left: 201px;
+    position: absolute;
+    top: 251px;
+    width: 51px;
+  }
+  
+  .box .vector-237 {
+    height: 3px;
+    left: 63px;
+    position: absolute;
+    top: 252px;
+    width: 3px;
+  }
+  
+  .box .vector-238 {
+    height: 20px;
+    left: 259px;
+    position: absolute;
+    top: 252px;
+    width: 14px;
+  }
+  
+  .box .vector-239 {
+    height: 6px;
+    left: 264px;
+    position: absolute;
+    top: 263px;
+    width: 4px;
+  }
+  
+  .box .vector-240 {
+    height: 6px;
+    left: 278px;
+    position: absolute;
+    top: 253px;
+    width: 5px;
+  }
+  
+  .box .vector-241 {
+    height: 20px;
+    left: 66px;
+    position: absolute;
+    top: 257px;
+    width: 13px;
+  }
+  
+  .box .vector-242 {
+    height: 20px;
+    left: 109px;
+    position: absolute;
+    top: 257px;
+    width: 13px;
+  }
+  
+  .box .vector-243 {
+    height: 21px;
+    left: 207px;
+    position: absolute;
+    top: 258px;
+    width: 40px;
+  }
+  
+  .box .vector-244 {
+    height: 2px;
+    left: 191px;
+    position: absolute;
+    top: 258px;
+    width: 1px;
+  }
+  
+  .box .vector-245 {
+    height: 1px;
+    left: 187px;
+    position: absolute;
+    top: 261px;
+    width: 2px;
+  }
+  
+  .box .vector-246 {
+    height: 1px;
+    left: 193px;
+    position: absolute;
+    top: 261px;
+    width: 2px;
+  }
+  
+  .box .vector-247 {
+    height: 2px;
+    left: 191px;
+    position: absolute;
+    top: 263px;
+    width: 1px;
+  }
+  
+  .box .vector-248 {
+    height: 59px;
+    left: 129px;
+    position: absolute;
+    top: 263px;
+    width: 54px;
+  }
+  
+  .box .vector-249 {
+    height: 1px;
+    left: 133px;
+    position: absolute;
+    top: 268px;
+    width: 2px;
+  }
+  
+  .box .vector-250 {
+    height: 1px;
+    left: 137px;
+    position: absolute;
+    top: 268px;
+    width: 2px;
+  }
+  
+  .box .vector-251 {
+    height: 1px;
+    left: 142px;
+    position: absolute;
+    top: 268px;
+    width: 2px;
+  }
+  
+  .box .vector-252 {
+    height: 1px;
+    left: 146px;
+    position: absolute;
+    top: 268px;
+    width: 2px;
+  }
+  
+  .box .vector-253 {
+    height: 1px;
+    left: 151px;
+    position: absolute;
+    top: 268px;
+    width: 2px;
+  }
+  
+  .box .vector-254 {
+    height: 8px;
+    left: 172px;
+    position: absolute;
+    top: 269px;
+    width: 7px;
+  }
+  
+  .box .vector-255 {
+    height: 3px;
+    left: 159px;
+    position: absolute;
+    top: 271px;
+    width: 3px;
+  }
+  
+  .box .vector-256 {
+    height: 3px;
+    left: 165px;
+    position: absolute;
+    top: 271px;
+    width: 3px;
+  }
+  
+  .box .vector-257 {
+    height: 1px;
+    left: 133px;
+    position: absolute;
+    top: 273px;
+    width: 2px;
+  }
+  
+  .box .vector-258 {
+    height: 1px;
+    left: 137px;
+    position: absolute;
+    top: 273px;
+    width: 2px;
+  }
+  
+  .box .vector-259 {
+    height: 1px;
+    left: 142px;
+    position: absolute;
+    top: 273px;
+    width: 2px;
+  }
+  
+  .box .vector-260 {
+    height: 1px;
+    left: 146px;
+    position: absolute;
+    top: 273px;
+    width: 2px;
+  }
+  
+  .box .vector-261 {
+    height: 1px;
+    left: 151px;
+    position: absolute;
+    top: 273px;
+    width: 2px;
+  }
+  
+  .box .vector-262 {
+    height: 1px;
+    left: 137px;
+    position: absolute;
+    top: 277px;
+    width: 2px;
+  }
+  
+  .box .vector-263 {
+    height: 1px;
+    left: 142px;
+    position: absolute;
+    top: 277px;
+    width: 2px;
+  }
+  
+  .box .vector-264 {
+    height: 1px;
+    left: 151px;
+    position: absolute;
+    top: 277px;
+    width: 2px;
+  }
+  
+  .box .vector-265 {
+    height: 1px;
+    left: 133px;
+    position: absolute;
+    top: 277px;
+    width: 2px;
+  }
+  
+  .box .vector-266 {
+    height: 1px;
+    left: 146px;
+    position: absolute;
+    top: 277px;
+    width: 2px;
+  }
+  
+  .box .vector-267 {
+    height: 1px;
+    left: 133px;
+    position: absolute;
+    top: 293px;
+    width: 2px;
+  }
+  
+  .box .vector-268 {
+    height: 1px;
+    left: 137px;
+    position: absolute;
+    top: 293px;
+    width: 2px;
+  }
+  
+  .box .vector-269 {
+    height: 1px;
+    left: 142px;
+    position: absolute;
+    top: 293px;
+    width: 2px;
+  }
+  
+  .box .vector-270 {
+    height: 1px;
+    left: 146px;
+    position: absolute;
+    top: 293px;
+    width: 2px;
+  }
+  
+  .box .vector-271 {
+    height: 1px;
+    left: 151px;
+    position: absolute;
+    top: 293px;
+    width: 2px;
+  }
+  
+  .box .vector-272 {
+    height: 8px;
+    left: 172px;
+    position: absolute;
+    top: 295px;
+    width: 7px;
+  }
+  
+  .box .vector-273 {
+    height: 3px;
+    left: 159px;
+    position: absolute;
+    top: 297px;
+    width: 3px;
+  }
+  
+  .box .vector-274 {
+    height: 3px;
+    left: 165px;
+    position: absolute;
+    top: 297px;
+    width: 3px;
+  }
+  
+  .box .vector-275 {
+    height: 1px;
+    left: 133px;
+    position: absolute;
+    top: 298px;
+    width: 2px;
+  }
+  
+  .box .vector-276 {
+    height: 1px;
+    left: 137px;
+    position: absolute;
+    top: 298px;
+    width: 2px;
+  }
+  
+  .box .vector-277 {
+    height: 1px;
+    left: 142px;
+    position: absolute;
+    top: 298px;
+    width: 2px;
+  }
+  
+  .box .vector-278 {
+    height: 1px;
+    left: 151px;
+    position: absolute;
+    top: 298px;
+    width: 2px;
+  }
+  
+  .box .vector-279 {
+    height: 1px;
+    left: 146px;
+    position: absolute;
+    top: 298px;
+    width: 2px;
+  }
+  
+  .box .vector-280 {
+    height: 1px;
+    left: 133px;
+    position: absolute;
+    top: 303px;
+    width: 2px;
+  }
+  
+  .box .vector-281 {
+    height: 1px;
+    left: 137px;
+    position: absolute;
+    top: 303px;
+    width: 2px;
+  }
+  
+  .box .vector-282 {
+    height: 1px;
+    left: 142px;
+    position: absolute;
+    top: 303px;
+    width: 2px;
+  }
+  
+  .box .vector-283 {
+    height: 1px;
+    left: 146px;
+    position: absolute;
+    top: 303px;
+    width: 2px;
+  }
+  
+  .box .vector-284 {
+    height: 1px;
+    left: 151px;
+    position: absolute;
+    top: 303px;
+    width: 2px;
+  }
+  
+  .box .vector-285 {
+    height: 2px;
+    left: 94px;
+    position: absolute;
+    top: 268px;
+    width: 1px;
+  }
+  
+  .box .vector-286 {
+    height: 4px;
+    left: 54px;
+    position: absolute;
+    top: 271px;
+    width: 1px;
+  }
+  
+  .box .vector-287 {
+    height: 2px;
+    left: 94px;
+    position: absolute;
+    top: 272px;
+    width: 1px;
+  }
+  
+  .box .vector-288 {
+    height: 1px;
+    left: 196px;
+    position: absolute;
+    top: 273px;
+    width: 1px;
+  }
+  
+  .box .vector-289 {
+    height: 8px;
+    left: 186px;
+    position: absolute;
+    top: 274px;
+    width: 9px;
+  }
+  
+  .box .vector-290 {
+    height: 2px;
+    left: 49px;
+    position: absolute;
+    top: 274px;
+    width: 3px;
+  }
+  
+  .box .vector-291 {
+    height: 2px;
+    left: 56px;
+    position: absolute;
+    top: 274px;
+    width: 3px;
+  }
+  
+  .box .vector-292 {
+    height: 2px;
+    left: 94px;
+    position: absolute;
+    top: 276px;
+    width: 1px;
+  }
+  
+  .box .vector-293 {
+    height: 2px;
+    left: 49px;
+    position: absolute;
+    top: 278px;
+    width: 3px;
+  }
+  
+  .box .vector-294 {
+    height: 2px;
+    left: 56px;
+    position: absolute;
+    top: 278px;
+    width: 3px;
+  }
+  
+  .box .vector-295 {
+    height: 2px;
+    left: 68px;
+    position: absolute;
+    top: 280px;
+    width: 1px;
+  }
+  
+  .box .vector-296 {
+    height: 2px;
+    left: 119px;
+    position: absolute;
+    top: 280px;
+    width: 1px;
+  }
+  
+  .box .vector-297 {
+    height: 4px;
+    left: 54px;
+    position: absolute;
+    top: 280px;
+    width: 1px;
+  }
+  
+  .box .vector-298 {
+    height: 24px;
+    left: 76px;
+    position: absolute;
+    top: 281px;
+    width: 37px;
+  }
+  
+  .box .vector-299 {
+    height: 2px;
+    left: 68px;
+    position: absolute;
+    top: 284px;
+    width: 1px;
+  }
+  
+  .box .vector-300 {
+    height: 2px;
+    left: 119px;
+    position: absolute;
+    top: 284px;
+    width: 1px;
+  }
+  
+  .box .vector-301 {
+    height: 8px;
+    left: 197px;
+    position: absolute;
+    top: 285px;
+    width: 59px;
+  }
+  
+  .box .vector-302 {
+    height: 2px;
+    left: 68px;
+    position: absolute;
+    top: 288px;
+    width: 1px;
+  }
+  
+  .box .vector-303 {
+    height: 2px;
+    left: 119px;
+    position: absolute;
+    top: 288px;
+    width: 1px;
+  }
+  
+  .box .vector-304 {
+    height: 1px;
+    left: 72px;
+    position: absolute;
+    top: 289px;
+    width: 2px;
+  }
+  
+  .box .vector-305 {
+    height: 1px;
+    left: 76px;
+    position: absolute;
+    top: 289px;
+    width: 2px;
+  }
+  
+  .box .vector-306 {
+    height: 1px;
+    left: 111px;
+    position: absolute;
+    top: 289px;
+    width: 2px;
+  }
+  
+  .box .vector-307 {
+    height: 1px;
+    left: 114px;
+    position: absolute;
+    top: 289px;
+    width: 2px;
+  }
+  
+  .box .vector-308 {
+    height: 18px;
+    left: 189px;
+    position: absolute;
+    top: 295px;
+    width: 28px;
+  }
+  
+  .box .vector-309 {
+    height: 2px;
+    left: 233px;
+    position: absolute;
+    top: 297px;
+    width: 1px;
+  }
+  
+  .box .vector-310 {
+    height: 5px;
+    left: 216px;
+    position: absolute;
+    top: 299px;
+    width: 5px;
+  }
+  
+  .box .vector-311 {
+    height: 1px;
+    left: 230px;
+    position: absolute;
+    top: 300px;
+    width: 2px;
+  }
+  
+  .box .vector-312 {
+    height: 1px;
+    left: 235px;
+    position: absolute;
+    top: 300px;
+    width: 2px;
+  }
+  
+  .box .vector-313 {
+    height: 2px;
+    left: 233px;
+    position: absolute;
+    top: 302px;
+    width: 1px;
+  }
+  
+  .box .vector-314 {
+    height: 2px;
+    left: 120px;
+    position: absolute;
+    top: 302px;
+    width: 1px;
+  }
+  
+  .box .vector-315 {
+    height: 1px;
+    left: 117px;
+    position: absolute;
+    top: 305px;
+    width: 2px;
+  }
+  
+  .box .vector-316 {
+    height: 1px;
+    left: 122px;
+    position: absolute;
+    top: 305px;
+    width: 2px;
+  }
+  
+  .box .vector-317 {
+    height: 10px;
+    left: 197px;
+    position: absolute;
+    top: 305px;
+    width: 6px;
+  }
+  
+  .box .vector-318 {
+    height: 10px;
+    left: 204px;
+    position: absolute;
+    top: 306px;
+    width: 4px;
+  }
+  
+  .box .vector-319 {
+    height: 2px;
+    left: 120px;
+    position: absolute;
+    top: 307px;
+    width: 1px;
+  }
+  
+  .box .vector-320 {
+    height: 6px;
+    left: 103px;
+    position: absolute;
+    top: 310px;
+    width: 5px;
+  }
+  
+  .box .vector-321 {
+    height: 3px;
+    left: 117px;
+    position: absolute;
+    top: 316px;
+    width: 3px;
+  }
+  
+  .box .TCS-ENTERPRISE-CLOUD {
+    color: #f5f5f5;
+    font-family: "Bebas Neue-bolder", Helvetica;
+    font-size: 16px;
+    font-weight: 600;
+    left: 82px;
+    letter-spacing: 0;
+    line-height: 30px;
+    position: absolute;
+    text-align: center;
+    top: 125px;
+    width: 149px;
+  }
+  
+  /* solutions */
+  .base {
+    align-items: flex-start;
+    display: inline-flex;
+    justify-content: flex-end;
+    padding: 0px 4px;
+    position: relative;
+  }
+  
+  .base .change-text-props {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    opacity: 0;
+    position: relative;
+  }
+  
+  .base .sameascountertext {
+    color: #ebebeb;
+    font-family: "Jost", Helvetica;
+    font-size: 64px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 80px;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .base .mask {
+    height: 80px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 91px;
+  }
+  
+  .base .controls-width {
+    flex: 0 0 auto;
+    height: 62.77px;
+    position: relative;
+  }
+
+  /* Header */
+  .hero {
+    background-color: #FFFFFF;
+    border: 1px none;
+    height: 53px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .hero .text-wrapper-2 {
+    color: #121517;
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 500;
+    left: 814px;
+    letter-spacing: 0;
+    line-height: 28px;
+    position: absolute;
+    top: 5px;
+    white-space: nowrap;
+    width: 47px;
+  }
+  
+  .hero .rectangle {
+    background-color: #91cde2;
+    border-radius: 3px;
+    height: 5px;
+    left: 814px;
+    position: absolute;
+    top: 34px;
+    width: 37px;
+  }
+  
+  .hero .sign-in-instance {
+    left: 1254px !important;
+    position: absolute !important;
+    top: 5px !important;
+    width: 73px !important;
+  }
+  
+  .hero .design-component-instance-node {
+    color: #121517 !important;
+    font-size: 15px !important;
+    width: 66px !important;
+  }
+  
+  .hero .thumbnail {
+    height: 45px;
+    left: 61px;
+    object-fit: cover;
+    position: absolute;
+    top: 3px;
+    width: 156px;
+  }
+  
+  .hero .solutions-instance {
+    left: 912px !important;
+    position: absolute !important;
+    top: 7px !important;
+  }
+  
+  .hero .text-wrapper-3 {
+    color: #121517;
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 500;
+    left: 1037px;
+    letter-spacing: 0;
+    line-height: 28px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 79px;
+  }
+  
+  .hero .text-wrapper-4 {
+    color: #121517;
+    font-family: "Inter", Helvetica;
+    font-size: 15px;
+    font-weight: 500;
+    left: 1154px;
+    letter-spacing: 0;
+    line-height: 28px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 53px;
+  }
+  
+  /* Footer */
+  .div-basefooter {
+    background-color: #121517;
+    height: 86px;
+    width: 1446px;
+  }
+  
+  .div-basefooter .div-row {
+    height: 38px;
+    left: 97px;
+    position: relative;
+    top: 24px;
+    width: 1253px;
+  }
+  
+  .div-basefooter .TCS-svg {
+    height: 38px;
+    left: 15px;
+    position: absolute;
+    top: 0;
+    width: 154px;
+  }
+  
+  .div-basefooter .ul-social-icn-ul {
+    height: 24px;
+    left: 224px;
+    position: absolute;
+    top: 7px;
+    width: 179px;
+  }
+  
+  .div-basefooter .element-TATA {
+    color: #f4f3f9;
+    font-family: "Inter", Helvetica;
+    font-size: 10.2px;
+    font-weight: 400;
+    height: 13px;
+    left: 433px;
+    letter-spacing: 0;
+    line-height: 16.8px;
+    position: absolute;
+    top: 12px;
+    white-space: nowrap;
+    width: 217px;
+  }
+  
+  .div-basefooter .ul-base-footer-tcs {
+    height: 1px;
+    left: 746px;
+    position: absolute;
+    top: 7px;
+    width: 388px;
+  }
+  
+  .div-basefooter .privacy-notice {
+    color: #f4f3f9;
+    font-family: "Inter", Helvetica;
+    font-size: 11px;
+    font-weight: 400;
+    height: 14px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 18px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 78px;
+  }
+  
+  .div-basefooter .cookie-policy {
+    color: #f4f3f9;
+    font-family: "Inter", Helvetica;
+    font-size: 11px;
+    font-weight: 400;
+    height: 14px;
+    left: 94px;
+    letter-spacing: 0;
+    line-height: 18px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 75px;
+  }
+  
+  .div-basefooter .disclaimer {
+    color: #f4f3f9;
+    font-family: "Inter", Helvetica;
+    font-size: 11px;
+    font-weight: 400;
+    height: 14px;
+    left: 185px;
+    letter-spacing: 0;
+    line-height: 18px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 56px;
+  }
+  
+  .div-basefooter .security-policy {
+    color: #f4f3f9;
+    font-family: "Inter", Helvetica;
+    font-size: 11px;
+    font-weight: 400;
+    height: 14px;
+    left: 256px;
+    letter-spacing: 0;
+    line-height: 18px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 81px;
+  }
+  
+
+  

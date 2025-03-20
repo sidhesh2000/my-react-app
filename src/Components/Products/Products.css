@@ -1,0 +1,118 @@
+.Productscontainer{
+    height:100%;
+padding-left: 1rem;
+padding-right:1rem;
+}
+.product-container{
+    display:flex;
+    justify-content: center;
+}
+.digitally {
+    color: var(--color-royalblue);
+    
+    font-size: var(--font-size-21xl);
+    letter-spacing: -0.02em;
+    line-height: 48px;
+    font-family: var(--font-bebas-neue);
+   
+    
+    
+  }
+  .Explore{
+    font-size: var(--font-size-21xl);
+    letter-spacing: -0.02em;
+    line-height: 48px;
+    font-family: var(--font-bebas-neue);
+    color: var(--color-darkslategray-300);
+  }
+  .ProductsAlignContainer{
+    gap: 0.4rem;
+    display: flex;
+    justify-content: center;
+  }
+ .TotalWidthContainer{
+    width:100%;
+    display:flex;
+ }
+
+
+ .ContentContInner{
+    display:flex;
+    gap:1rem;
+ }
+ .ContentCont{
+  width:80%
+ }
+ .GifCont{
+width:10%
+ }
+ .ButtonCont{
+  width:10%;
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+   }
+ @media (max-width: 768px) {
+  .TotalWidthContainer{
+    flex-direction: column;
+ }
+ .GifCont{
+  width:100%;
+  display:flex;
+  justify-content: center;
+   }
+   .ButtonCont{
+    width:100%;
+   
+    align-items: center;
+    justify-content: center;
+     }
+     .ContentCont{
+      width:100%
+     }
+ }
+
+ .live-indicator-block-product {
+    display:flex;
+    align-items: center;
+  }
+  .live-indicator-block-product .live-indicator {
+    font-family: 'Roboto', sans-serif;
+    background: #407bff;
+    color: #fff;
+    padding: 6px 7px;
+    line-height: 1;
+    border-radius: 6px;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 9px;
+    font-weight: bold;
+    width: auto;
+  }
+  .live-indicator-block-greena {
+    display: flex;
+        align-items: center;
+  }
+  
+
+  .live-indicator-block-greena .live-indicator-greena {
+    font-family: 'Roboto', sans-serif;
+    background: #62B62C;
+    color: #fff;
+    padding: 6px 7px;
+    line-height: 1;
+    border-radius: 6px;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 9px;
+    font-weight: bold;
+    width: auto;
+  }
+  .live-indicator-block-green .live-indicator-green .blink {
+    animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+    font-size: 10px;
+    margin-right: 5px;
+    vertical-align: baseline;
+  }

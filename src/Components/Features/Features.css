@@ -1,0 +1,179 @@
+.reasons-we-are-box {
+   
+  
+    font-size: var(--font-size-21xl);
+    letter-spacing: -0.02em;
+    line-height: 48px;
+    font-family: var(--font-bebas-neue);
+    color: var(--color-darkslategray-300);
+     display:flex;
+     justify-content: center;
+  }
+  .features1New,
+  .rectangle-parent4 {
+    
+    height: 25.66%;
+    width: 31.34%;
+    top: 74.34%;
+    right: 68.66%;
+    bottom: 0;
+    left: 0;
+  }
+  .features1New {
+    height: 52.4%;
+    width: 100%;
+    top: 14.06%;
+    right: 0;
+    bottom: 33.54%;
+  }
+.featuresNew {
+    
+    width: 100%;
+    height:100%;
+    text-align: center;
+    font-size: var(--font-size-3xl);
+    color: var(--color-black);
+    font-family: var(--font-outfit);
+   
+  }
+  .custom-servicesNew {
+    top: 0;
+    left: 18.69%;
+    font-weight: 500;
+    color:var(--color-black)
+  }
+  .featuresNew :hover {
+    .custom-servicesNew{
+        color: #6663b3;
+        font-weight: 505;
+    }}
+    .group-item1 {
+       
+        height: 100%;
+        width: 100%;
+        
+        border-radius: var(--br-3xs);
+        background-color: var(--color-aliceblue);
+        border-style: hidden;
+        border-color: #000;
+        display: flex;
+        gap:1rem;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .group-inner1{
+        height: 100%;
+        width: 100%;
+        
+        border-radius: var(--br-3xs);
+        border-style: hidden;
+        border-color: #000;
+        display: flex;
+        gap:1rem;
+        justify-content: center;
+        padding: 2rem;
+        background-color: var(--color-oldlace);
+      }
+      .rectangle-div1{
+        height: 100%;
+        width: 100%;
+        
+        border-radius: var(--br-3xs);
+        border-style: hidden;
+        border-color: #000;
+        display: flex;
+        gap:1rem;
+        justify-content: center;
+        padding: 2rem;
+      background-color: var(--color-seashell);
+
+      }
+    .featuresNew :hover{
+        .group-item {
+          border-style: groove;
+          border-color: #23216E;
+        }
+      }
+      .featuresNew .custom-services:hover {
+   
+        color:#23216E;
+      }
+      .featuresNew :hover{
+        .group-inner{
+            border-style: groove;
+            border-color: #E88080;
+        }
+    }
+    .featuresNew :hover{
+        .rectangle-div{
+            border-style: groove;
+            border-color: #F96F6F;
+        }
+      }
+      .featuresNew :hover{
+        .group-child1{
+            border-style: groove;
+            border-color: #0972D3;
+        }
+      }
+      .featuresNew1,
+      .rectangle-parent4 {
+        height: 25.66%;
+        width: 31.34%;
+      
+      }
+      .featuresNew1 {
+        height: 52.4%;
+        width: 100%;
+        top: 14.06%;
+        right: 0;
+        bottom: 33.54%;
+      }
+      .FeaturesBoxContainer{
+        display:flex;
+        gap:3rem;
+        width: 100%;
+
+      }
+      .TotalContainer{
+        display: flex;
+        flex-direction: column;
+        gap:3rem;
+        margin-top: 1rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+      }
+      @media (max-width: 768px) {
+        .FeaturesBoxContainer{
+   
+          flex-direction: column;
+        }
+        .TotalContainer{
+        
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+      .FeaturesInnerBox{
+        width: 100%;
+        color:white;
+        
+        border-radius: 1rem;
+      }
+     
+      .alignImage{
+        display:flex;
+    align-items: center;
+      }
+      .group-childnew{
+        height: 100%;
+        width: 100%;
+        background-color: var(--color-mintcream);  
+        border-radius: var(--br-3xs);
+        border-style: hidden;
+        border-color: #000;
+        display: flex;
+        gap:1rem;
+        justify-content: center;
+        padding: 2rem;
+      }
