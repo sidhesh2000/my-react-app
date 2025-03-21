@@ -445,8 +445,7 @@ body {
     left: 0;
     width: 1440px;
     height: 555px;
-   background-image: url(../assets/doodle_cloud-opacity.png); 
-   background-repeat:repeat-x repeat-y ;
+    background-repeat:repeat-x repeat-y ;
    background-color: #F0F8F8;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1210,8 +1209,8 @@ body {
     left: 1126px;
   }
   .group-parent {
-    height: 100%;
     width: 100%;
+    height: 100%;
     top: 0;
     right: 0;
     bottom: 0;

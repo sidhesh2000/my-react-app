@@ -114,16 +114,105 @@ export const Desktop1 = () => {
 
   return (
    <div>
-    <Hero/>
-    <div >
+    <div>
+  <div className="hero-1">
+    {/*  <div className="rectangle-3-2" />
+      <div className="rectangle-2-2" />
+      <div className="hero-1-child" /> */}
+    <div className="home" onClick={handleClick1} style={{ cursor: 'pointer' }}>
+      <AnimationWrapper
+        config={{
+          color: {
+            initial: '#121517',
+            onHover: '#407bff',
+          },
+          fontSize: {
+            initial: '16px',
+            onHover: '18px',
+          },
+        }}
+      >
+        Home
+      </AnimationWrapper>
+    </div>
+    <div className="rectangle-2-3" />
+    {/*   <div className="sign-in">
+        <div className="sign-in-2">Log out</div>
+      </div> */}
+    <img
+      className="thumbnail-image003-1-2-icon"
+      alt=""
+      src={require('../assets/TCSECP-Logo.png')}
+    />
+    <div className="solutions1" onClick={handleClick} style={{ cursor: 'pointer', color: '#121517' }}>
+      <div className="solutions-2">
+        <AnimationWrapper
+          config={{
+            color: {
+              initial: '#121517',
+              onHover: '#407bff',
+            },
+            fontSize: {
+              initial: '16px',
+              onHover: '18px',
+            },
+          }}
+        >
+          Solutions
+        </AnimationWrapper>
+      </div>
+    </div>
+    <div className="products" onClick={handleClick2} style={{ cursor: 'pointer', color: '#121517' }}>
+      <AnimationWrapper
+        config={{
+          color: {
+            initial: '#121517',
+            onHover: '#407bff',
+          },
+          fontSize: {
+            initial: '16px',
+            onHover: '18px',
+          },
+        }}
+      >
+        Products
+      </AnimationWrapper>
+    </div>
+    <div className="learn">
+      <Link to="/learn" style={{ textDecoration: 'none', color: '#121517', fontWeight: '600' }}>
+        <AnimationWrapper
+          style={{
+            textAlign: 'center',
+            padding: '6px',
+          }}
+          config={{
+            color: {
+              initial: '#121517',
+              onHover: '#407bff',
+            },
+            fontSize: {
+              initial: '16px',
+              onHover: '18px',
+            },
+          }}
+        >
+          Learn
+        </AnimationWrapper>
+      </Link>
+    </div>
+  </div> {/* Closing tag for hero-1 */}
+</div> {/* Closing tag for the outer div */}
+<div ref={ref1} id="">
+      
     <LandingHero/>
     </div>
-   
+    <div ref={ref} id="solution">
     <Solutions/>
+    </div>
     
    
    
-     <div  id="product">
+     <div ref={ref2} id="product">
      <Products/>
      </div>
   
