@@ -2,7 +2,7 @@ import React from 'react'
 
 function LandingHero() {
   return (
-    <div style={{position:"relative",height:"120vh"}}>
+    <div style={{position:"relative",height:"100vh"}} >
         <div className="frame-parent">
         <div className="group-parent">
           <div className="ellipse-parent">

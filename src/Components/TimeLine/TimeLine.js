@@ -1,115 +1,162 @@
-import React from 'react'
-import "./TimeLine.css"
-import { Fade } from 'react-bootstrap'
+import React from 'react';
+import "./TimeLine.css";
+import { Fade } from 'react-bootstrap';
+
 function TimeLine() {
+  // Reusable assets
+  const lineImage = require('../../assets/Line 2.png');
+  const lineImage2 = require('../../assets/Line 3.png');
+  const publicCloudImage = require('../../assets/public_cloud 1.png');
+
+  // Timeline data
+  const timelineData = [
+    {
+      year: "2023",
+      content: "Unleash business resilience with enterprise cloud.",
+      image: lineImage,
+      fadeDirection: "bottom",
+      delay: 5000,
+      duration: 2000,
+      className: "year-2023",
+      contentClass: "content1",
+      textClass: "unleash-business-resilience",
+      bClass: "b1",
+    },
+    {
+      year: "2021",
+      content: "Unleash business resilience with enterprise cloud.",
+      image: lineImage,
+      fadeDirection: "bottom",
+      delay: 3000,
+      duration: 2000,
+      className: "year-2021",
+      contentClass: "content1",
+      textClass: "unleash-business-resilience",
+      bClass: "b1",
+    },
+    {
+      year: "2022",
+      content: "Unleash business resilience with enterprise cloud.",
+      image: lineImage2,
+      fadeDirection: "top",
+      delay: 4000,
+      duration: 2000,
+      className: "year-2022",
+      contentClass: "content3",
+      textClass: "unleash-business-resilience2",
+      bClass: "b3",
+      reverseOrder: true, // Indicates that the content and year are in reverse order
+    },
+    {
+      year: "2020",
+      content: "Unleash business resilience with enterprise cloud.",
+      image: lineImage2,
+      fadeDirection: "top",
+      delay: 2000,
+      duration: 2000,
+      className: "year-2020",
+      contentClass: "content3",
+      textClass: "unleash-business-resilience2",
+      bClass: "b3",
+      reverseOrder: true, // Indicates that the content and year are in reverse order
+    },
+    {
+      year: "2019",
+      content: "Unleash business resilience with enterprise cloud.",
+      image: lineImage,
+      fadeDirection: "bottom",
+      delay: 1000,
+      duration: 3000,
+      className: "year-2019",
+      contentClass: "content1",
+      textClass: "unleash-business-resilience",
+      bClass: "b1",
+    },
+  ];
+
   return (
-    <div >
-         <div className="headingsNew">
-          <div className="well-help-digitally-containers">
-            <span>{`We'll help `}</span>
-            <span className="digitally">digitally</span>
-            <span className="span">{` `}</span>
-            <span className="digitally">transform</span>
-            <span> your business</span>
-          </div>
+    <div>
+      <div className="headingsNew">
+        <div className="well-help-digitally-containers">
+          <span>{`We'll help `}</span>
+          <span className="digitally">digitally</span>
+          <span className="span">{` `}</span>
+          <span className="digitally">transform</span>
+          <span> your business</span>
         </div>
-        <div className="with-tcs-enterprises">
-            <div className='paraLines'>
+      </div>
+      <div className="with-tcs-enterprises">
+        <div className="paraLines">
           With TCS Enterprise Cloud, you can gain a competitive edge, keep up
           with changing business needs, and stay compliant with ever-evolving
           regulatory and privacy directives while accelerating innovation for
           sustainable growth.
-          </div>
         </div>
-        <div style={{position:"relative"}}>
+      </div>
+      <div style={{ position: "relative" , marginTop:"1rem" }}>
         <div className="timeline">
-                <div className="timeline-child" />
-            
-            <Fade bottom delay={5000} duration={2000}>
-                <div className="year-2023">
-                  <b className="b1">2023</b>
-                  <div className="content1">
-                    <img className="content-child" alt="" src={require('../../assets/Line 2.png')} />
-                    <div className="unleash-business-resilience">
-                      Unleash business resilience with enterprise cloud.
-                    </div>
-                  </div>
+          <div className="timeline-child" />
+
+          {/* Mapped Timeline Items */}
+          {timelineData.map((item, index) => (
+            <Fade
+              key={index}
+              bottom={item.fadeDirection === "bottom"}
+              top={item.fadeDirection === "top"}
+              delay={item.delay}
+              duration={item.duration}
+            >
+              <div className={item.className}>
+                {!item.reverseOrder && <b className={item.bClass}>{item.year}</b>}
+                <div className={item.contentClass}>
+                  {item.reverseOrder && (
+                    <>
+                      <div className={item.textClass}>{item.content}</div>
+                      <img className="content-child" alt="" src={item.image} />
+                    </>
+                  )}
+                  {!item.reverseOrder && (
+                    <>
+                      <img className="content-child" alt="" src={item.image} />
+                      <div className={item.textClass}>{item.content}</div>
+                    </>
+                  )}
                 </div>
-                </Fade>
-                <Fade bottom delay={3000} duration={2000}>
-                <div className="year-2021">
-                  <b className="b1">2021</b>
-                  <div className="content1">
-                    <img className="content-child" alt="" src={require('../../assets/Line 2.png')} />
-                    <div className="unleash-business-resilience">
-                      Unleash business resilience with enterprise cloud.
-                    </div>
-                  </div>
-                </div>
-                </Fade>
-                <Fade top delay={4000} duration={2000}>
-                <div className="year-2022">
-                  <div className="content3">
-                    <div className="unleash-business-resilience2">
-                      Unleash business resilience with enterprise cloud.
-                    </div>
-                    <img className="content-child" alt="" src={require('../../assets/Line 3.png')} />
-                  </div>
-                  <b className="b3">2022</b>
-                </div>
-                </Fade>
-                <Fade top delay={2000} duration={2000}>
-                <div className="year-2020">
-                  <div className="content3">
-                    <div className="unleash-business-resilience2">
-                      Unleash business resilience with enterprise cloud.
-                    </div>
-                    <img className="content-child" alt="" src={require('../../assets/Line 3.png')} />
-                  </div>
-                  <b className="b3">2020</b>
-                </div>
-               </Fade>
-              <Fade bottom delay={1000} duration={3000}>
-                <div className="year-2019">
-                  <b className="b1">2019</b>
-                  <div className="content1">
-                    <img className="content-child" alt="" src={require('../../assets/Line 2.png')} />
-                    <div className="unleash-business-resilience">
-                      Unleash business resilience with enterprise cloud.
-                    </div>
-                  </div>
-                </div>
-               </Fade>
-                <img
-                  className="public-cloud-1-icon"
-                  alt="img"
-                  src={require('../../assets/public_cloud 1.png')}
-                />
-                <img
-                  className="public-cloud-2-icon"
-                  alt="img"
-                  src={require('../../assets/public_cloud 1.png')}
-                />
-                <img
-                  className="public-cloud-3-icon"
-                  alt="img"
-                  src={require('../../assets/public_cloud 1.png')}
-                />
-                <img
-                  className="public-cloud-4-icon"
-                  alt="img"
-                  src={require('../../assets/public_cloud 1.png')}
-                />
-                <img
-                  className="public-cloud-5-icon"
-                  alt="img"
-                  src={require('../../assets/public_cloud 1.png')}
-                />
-                </div> 
+                {item.reverseOrder && <b className={item.bClass}>{item.year}</b>}
+              </div>
+            </Fade>
+          ))}
+
+          {/* Public Cloud Images */}
+          <img
+            className="public-cloud-1-icon"
+            alt="img"
+            src={publicCloudImage}
+          />
+          <img
+            className="public-cloud-2-icon"
+            alt="img"
+            src={publicCloudImage}
+          />
+          <img
+            className="public-cloud-3-icon"
+            alt="img"
+            src={publicCloudImage}
+          />
+          <img
+            className="public-cloud-4-icon"
+            alt="img"
+            src={publicCloudImage}
+          />
+          <img
+            className="public-cloud-5-icon"
+            alt="img"
+            src={publicCloudImage}
+          />
         </div>
-          
+      </div>
     </div>
-  )
+  );
 }
 
-export default TimeLine
+export default TimeLine;

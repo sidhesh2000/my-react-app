@@ -2,6 +2,7 @@
     color: var(--color-darkslategray-200);
     font-size: var(--font-size-21xl);
     font-family: var(--font-bebas-neue);
+    padding: 3rem;
 }
 .headingsNew{
     display:flex;

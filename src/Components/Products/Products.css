@@ -29,6 +29,7 @@ padding-right:1rem;
     gap: 0.4rem;
     display: flex;
     justify-content: center;
+    padding: 3rem;
   }
  .TotalWidthContainer{
     width:100%;
