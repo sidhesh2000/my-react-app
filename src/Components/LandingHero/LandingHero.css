@@ -1,0 +1,66 @@
+
+.LandingBg {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../../assets/imageedit_4_8452225823.png) ; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+  }
+  .InnerFlexContainer{
+    display: flex;
+    gap: 3rem;
+    width:100%;
+    align-items: center;
+    margin-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .BlueHeading {
+    position: relative;
+    font-weight: 500;
+    color: var(--color-royalblue);
+    font-family: var(--font-inter);
+    font-size: 2.5rem;
+}
+  .InnerCont1{
+
+
+  }
+  .InnerCont2{
+    
+  }
+  .BlackHeading{
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+  .InnerListCont{
+    display:flex;
+    gap:0.5rem;
+  }
+  .ListFontStyle {
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.04em;
+    color: #263238;
+    font-weight: 700;
+    font-family: var(--font-inter);
+}
+.TickImage{
+    height: 1rem;
+}
+.ListCont{
+    line-height: 2rem;
+}
+.frame-childrens {
+    background-color: var(--color-royalblue);
+    width: 5rem;
+    height: 2.5rem; /* Half of the width */
+    border-bottom-left-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+  }
+  

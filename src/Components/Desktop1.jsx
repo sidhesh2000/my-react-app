@@ -217,8 +217,8 @@ export const Desktop1 = () => {
      </div>
   
     <Features/>
-    <TimeLine/>
-    <Carosel/>
+    {/* <TimeLine/>
+    <Carosel/> */}
   
 <Footer/>
    </div>
