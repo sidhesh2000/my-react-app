@@ -8,17 +8,20 @@ import ProgressBar from "react-scroll-progress-bar";
 import Minimap from 'react-minimap';
 import PdfUploader from '../Components/PdfUploader/PdfUploader'
 
-
+import { useState } from "react";
 //import {Helmet} from "react-helmet";
 //import './PageTracker.js';
 
 
 export const Home = () => {
+  const [first, setfirst] = useState()
  //refresh
  const refreshPage = ()=>{
   window.location.reload();
 }
- 
+const pull_data = (data) => {
+  setfirst(data); // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
+}
    // by default, I initialized expanded to true for responsiveness demo
   // drag the demo window until it is below 375 width to see sidebar collapse
   
@@ -51,7 +54,6 @@ export const Home = () => {
     return (
       <>
    
-     
           <ScrollUpButton />
          
         
@@ -139,7 +141,13 @@ export const Home = () => {
          </div>
 */}  
    
-   <PdfUploader/>
+   <PdfUploader   func={pull_data}/>
+   <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: first }}
+      ></div>
+     
   <p>
     <span style={{ color: "#004dbb" }}>
       <span style={{ fontFamily: 'inter' }}>
