@@ -76,11 +76,7 @@ function Carosel() {
         </div>
 
         
-        <img
-          gla="server-small-1-icon"
-          alt="img"
-          src={require('../../assets/server_small 1.png')}
-        />
+     
       </div>
     </div>
   );
