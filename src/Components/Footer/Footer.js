@@ -1,28 +1,28 @@
 import React from 'react'
-
+import "./Footer.css"
 function Footer() {
   return (
-    <div style={{position:"relative"}}>
-          <div className="divbasefooter">
-        <div className="divrow">
-          <div className="tcs20logosvg">
-            <img className="tcs20logosvg-icon" alt="" src={require('../../assets/TCS%20logo.svg.png')} />
-          </div>
-          <img
-            className="ulsocial-icn-ul-icon"
+    <div>
+      <div className='footerbg'>
+      <div>
+      <img className="TataImg"alt="" src={require('../../assets/TCS%20logo.svg.png')} />
+      </div>
+      <div>
+      <img
+            className='SocialImg'
             alt="img"
             src={require('../../assets/ul.social-icn-ul.png')}
           />
-          <div className="tata-consultancy-services">
-            ©2023 TATA Consultancy Services Limited
-          </div>
-          <div className="ulbase-footer-tcs-lnks-ul">
-            <div className="privacy-notice">Privacy Notice</div>
-            <div className="cookie-policy">Cookie Policy</div>
-            <div className="disclaimer">Disclaimer</div>
-            <div className="security-policy">Security Policy</div>
-          </div>
-        </div>
+      </div>
+      <div className='TataText'>
+      ©2023 TATA Consultancy Services Limited
+      </div>
+      <div className='finalText'> 
+      <div >Privacy Notice</div>
+            <div >Cookie Policy</div>
+            <div >Disclaimer</div>
+            <div >Security Policy</div>
+      </div>
       </div>
     </div>
   )

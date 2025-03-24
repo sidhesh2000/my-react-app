@@ -3,38 +3,70 @@ import Carousel from 'react-elastic-carousel';
 import Item from '../item';
 import carouselData from './CaroselData'; // Import the JSON data
 import './Carosel.css'; // Ensure you have the necessary CSS
-
+import { useState , useEffect } from 'react';
 function Carosel() {
+  const [itemsToShow, setItemsToShow] = useState(2);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) { // Adjust breakpoint for mobile
+        setItemsToShow(1); // Show 1 item on mobile
+      } else {
+        setItemsToShow(2); // Show 2 items on larger screens
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <div style={{ position: 'relative' }}>
-      <div className="sectionbg-purple-25">
-        <div className="divcontainer">
-          <div className="divrelative">
-            <Carousel itemsToShow={2}>
+      <div gla="sectionbg-purple-25">
+      <div gla="heading">
+          <div className='HeadingContainer'>
+            <div>
+            <span className='blackheader'>{`We'll help `}</span>
+            <span className='blackheader'>digitally</span>
+            <span gla="span">{` `}</span>
+            <span className="digitally">transform</span>
+            <span className='blackheader'> your business</span>
+            </div> </div>
+        </div>
+        <div gla="divcontainer">
+          <div gla="divrelative">
+            <Carousel itemsToShow={itemsToShow}>
               {carouselData.map((item) => (
                 <Item key={item.id}>
-                  <div className="divcarousel-items">
-                    <div className={item.figureClass} style={{ width: '460px' }}>
-                      <div className={item.gatsbyClass}>
-                        <img className="image-icon" alt="" src={item.image} />
-                        <img
-                          className="testimonials-linewebp-icon"
-                          alt="img"
-                          src={item.image}
-                        />
-                      </div>
-                      <div className={item.contentClass}>
-                        <span className="satishchandra-doreswamy-vice-container1">
-                          <p className="satishchandra-doreswamy">{item.name}</p>
-                          <p className="vice-president-and">{item.role}</p>
-                        </span>
-                      </div>
-                      <div className={item.textClass}>{item.quote}</div>
-                      <img
+                  
+                  <div gla="divcarousel-items">
+                 
+                    <div className={item.figureClass} style={{
+  width: itemsToShow !== 1 ? "24rem" : "16rem",
+  padding: "1rem",
+  height: itemsToShow !== 1 ? "16rem" : "20rem"
+}}>
+                    <img
                         className={item.avatarClass}
                         alt=""
                         src={item.avatar}
                       />
+                      <div gla={item.gatsbyClass}>
+                        
+                 
+                      </div>
+                      <div gla={item.contentClass}>
+                        <span gla="satishchandra-doreswamy-vice-container1">
+                          <p gla="satishchandra-doreswamy">{item.name}</p>
+                          <p className="carosel1guy">{item.role}</p>
+                        </span>
+                      </div>
+                      <div className={item.textClass}>{item.quote}</div>
+                     
                     </div>
                   </div>
                 </Item>
@@ -43,17 +75,9 @@ function Carosel() {
           </div>
         </div>
 
-        <div className="heading">
-          <div className="well-help-digitally-container">
-            <span>{`We'll help `}</span>
-            <span className="digitally">digitally</span>
-            <span className="span">{` `}</span>
-            <span className="digitally">transform</span>
-            <span> your business</span>
-          </div>
-        </div>
+        
         <img
-          className="server-small-1-icon"
+          gla="server-small-1-icon"
           alt="img"
           src={require('../../assets/server_small 1.png')}
         />

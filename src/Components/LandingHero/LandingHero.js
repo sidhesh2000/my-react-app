@@ -48,6 +48,7 @@ function LandingHero() {
       </div>
 
     </div>
+   
    </div>
   )
 }

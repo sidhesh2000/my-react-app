@@ -1,0 +1,97 @@
+.HeadingContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+.blackheader{
+    
+    color: var(--color-darkslategray-200);
+    font-size: var(--font-size-21xl);
+    font-family: var(--font-bebas-neue);
+}
+.carosel1{
+   
+width: "24rem" !important;
+    padding:"1rem";
+    height:"15rem";
+border-radius: var(--br-5xl);
+background: linear-gradient(135deg, #372580, #1b1340);
+box-shadow: 2px 2px 6px rgba(74, 45, 197, 0.04), 8px 9px 26px rgba(74, 45, 197, 0.07), 22px 24px 80px rgba(74, 45, 197, 0.11);
+color: #22d1ee;
+}
+.carosel2{
+    height: calc(100% - 212px);
+    width: calc(100% - 4511.53px);
+    width: "24rem";
+    padding:"1rem";
+    height:"15rem";
+    border-radius: var(--br-5xl);
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 6px rgba(74, 45, 197, 0.04), 8px 9px 26px rgba(74, 45, 197, 0.07), 22px 24px 80px rgba(74, 45, 197, 0.11);
+
+}
+.fnWhmJ{
+    width: 100%;
+}
+.carosel1guy{
+    margin: 0;
+    font-size: var(--font-size-3xs);
+    color: #b8bab9;
+  }
+  .satishchandra-doreswamy-vice-container1 {
+    line-break: anywhere;
+    width: 100%;
+  }
+.our-solutions-enables {
+    
+    font-size: var(--font-size-base);
+    line-height: 22.4px;
+    color: var(--color-whitesmoke);
+   
+  }
+.synergizing-your-its{
+   
+    font-size: var(--font-size-base);
+    line-height: 22.4px;
+    color: var(--color-darkslategray-400);
+    
+}
+.secure{
+   
+    font-size: var(--font-size-base);
+    line-height: 22.4px;
+    color: var(--color-darkslategray-400);
+    
+} 
+.avatar-icons2{
+    height:3rem
+}
+.avatar-icons1{
+    height:3rem
+}
+.avatar-icons{
+    height:3rem
+}
+.caroselCont{
+    width: "24rem";
+    padding:"1rem";
+    height:"15rem"
+}
+
+@media (max-width: 768px) {
+    .caroselCont{
+        width: 15rem;
+        padding: 1rem;
+        /* margin-right: 21rem; */
+        height: 15rem;
+        margin-left: -4rem;
+    }
+ 
+
+  }
+  .fnWhmJ {
+    width: 100%;
+    display: flex
+;
+    justify-content: center;
+}

@@ -1,0 +1,32 @@
+.footerbg{
+    background-color: var(--color-gray-100);
+    height: 4rem;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.TataImg{
+    height: 2rem;
+}
+.SocialImg{
+    height:2rem;
+}
+.TataText{
+    font-size: 0.8rem;
+}
+.finalText{
+    display: flex;
+    font-size: 0.8rem;
+    gap: 1rem;
+}
+@media (max-width: 768px) {
+    .TataImg{
+        display: none;
+    }.TataText{
+        display: none;
+    }
+    .finalText{
+        display: none;
+    }
+}

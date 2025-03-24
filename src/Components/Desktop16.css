@@ -5564,10 +5564,21 @@ body {
     top: 117px;
     left: 666px;
   }
+  @media (max-width: 768px) {
+    
+    .timeline{
+      display: none;
+   }
+  .digitally{
+    font-size: 0.5rem;
+  }
+  .well-help-digitally-containers{
+    font-size: 0.5rem;
+  }
+}
   .timeline {
-    position: absolute;
-    top: 20px;
-    left: 280px;
+    position: relative;
+    left: 344px;
     width: 766px;
     height: 270px;
     text-align: center;

@@ -63,4 +63,13 @@
     border-bottom-left-radius: 2.5rem;
     border-bottom-right-radius: 2.5rem;
   }
-  
+  @media (max-width: 768px) {
+    .BlackHeading{
+text-align: center;
+      font-size: 1rem;
+    }
+    .InnerCont2{
+      display: none;
+    }
+
+  }
