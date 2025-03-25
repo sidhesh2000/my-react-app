@@ -5575,6 +5575,26 @@ body {
   .well-help-digitally-containers{
     font-size: 0.5rem;
   }
+
+  
+}
+/* Hide the mobile component by default on desktop */
+.showen {
+  display: none;
+}
+
+/* Hide the desktop component by default on mobile */
+
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  .hiden {
+    display: none; /* Hide the desktop component on mobile */
+  }
+  .showen {
+    display: block;
+  }
+ 
 }
   .timeline {
     position: relative;

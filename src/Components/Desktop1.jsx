@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimationWrapper } from 'react-hover-animation'
-
+import { useState , useEffect } from 'react';
 /* Product */
 import { Hero } from "./Header";
 import Solutions from "../Components/Solutions/Solutions"
@@ -41,6 +41,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import Features from "./Features/Features";
 import LandingHero from "./LandingHero/LandingHero";
+import LandingHeroMb from "./LandingHero/LandingHeroMb";
 
 export const Desktop1 = () => {
   /*
@@ -111,7 +112,25 @@ export const Desktop1 = () => {
   });
 
  
-
+ const [itemsToShow, setItemsToShow] = useState(2);
+  useEffect(() => {
+     const handleResize = () => {
+       if (window.innerWidth <= 768) { // Adjust breakpoint for mobile
+         setItemsToShow(1); // Show 1 item on mobile
+       } else {
+         setItemsToShow(2); // Show 2 items on larger screens
+       }
+     };
+ 
+     // Initial check
+     handleResize();
+ 
+     // Add event listener for window resize
+     window.addEventListener('resize', handleResize);
+ 
+     // Cleanup
+     return () => window.removeEventListener('resize', handleResize);
+   }, []);
   return (
    <div>
     <div>
@@ -203,9 +222,13 @@ export const Desktop1 = () => {
   </div> {/* Closing tag for hero-1 */}
 </div> {/* Closing tag for the outer div */}
 <div ref={ref1} id="">
-      
-    <LandingHero/>
-    </div>
+<div className="showen">
+  <LandingHero />
+</div>
+<div className="hiden">
+  <LandingHeroMb />
+</div>
+</div>
     <div ref={ref} id="solution">
     <Solutions/>
     </div>
