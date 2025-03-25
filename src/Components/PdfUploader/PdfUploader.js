@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as pdfjsLib from "pdfjs-dist/build/pdf";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -6,15 +6,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.worker.min.js`;
 
 function PdfUploader(props) {
-  const [pdfHtml, setPdfHtml] = useState(""); // Store formatted HTML output
+  const [pdfHtml, setPdfHtml] = useState(localStorage.getItem("pdfData") || "");
   const [error, setError] = useState("");
-  const [showUpload, setShowUpload] = useState(true); // Toggle upload button visibility
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedHtml, setEditedHtml] = useState("");
+  const [showActions, setShowActions] = useState(false);
+
+  useEffect(() => {
+    if (pdfHtml) {
+      localStorage.setItem("pdfData", pdfHtml);
+    }
+  }, [pdfHtml]);
 
   const extractText = async (file) => {
     if (!file) return;
 
-    setPdfHtml(""); // Reset previous output
-    setError(""); // Reset errors
+    setPdfHtml("");
+    setEditedHtml("");
+    setError("");
 
     try {
       const reader = new FileReader();
@@ -26,43 +35,36 @@ function PdfUploader(props) {
           let extractedHtml = "";
           let prevItem = null;
 
-          // Loop through all pages
           for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const content = await page.getTextContent();
 
             content.items.forEach((item) => {
               let text = item.str;
-              if (!text.trim()) return; // Skip empty text
-              
-              // Check if current item is a heading (all uppercase)
-              const isHeading = text === text.toUpperCase(); // Check if text is all uppercase
+              if (!text.trim()) return;
+
+              const isHeading = text === text.toUpperCase();
 
               if (isHeading) {
-                // Add line breaks before headings
                 if (prevItem) {
-                  extractedHtml += "<br/><br/>"; 
+                  extractedHtml += "<br/><br/>";
                 }
-                // Apply blue color only if the text is all caps and add a break tag after heading
                 extractedHtml += `<strong style="color: #407bff; font-family: 'Inter', sans-serif;">${text}</strong><br/>`;
               } else {
                 extractedHtml += `<span style="font-family: 'Inter', font-size: large;">${text}</span> `;
               }
 
-              prevItem = item; // Update previous item for font size comparison
+              prevItem = item;
             });
           }
 
-          // Set the final HTML for the component
-          setPdfHtml(`
-            <div style="
-              width: 100%; 
-              text-align: justify; 
-              font-family: 'Inter';
-              font-size: large;
-            ">
+          const finalHtml = `
+            <div style="width: 100%; text-align: justify; font-family: 'Inter'; font-size: large;">
               ${extractedHtml}
-            </div>` || "No text found in this PDF.");
+            </div>` || "No text found in this PDF.";
+
+          setPdfHtml(finalHtml);
+          setEditedHtml(finalHtml);
         } catch (err) {
           console.error("PDF.js error:", err);
           setError("Failed to extract text from the PDF. It might be a scanned document.");
@@ -78,30 +80,40 @@ function PdfUploader(props) {
     }
   };
 
-  props?.func(pdfHtml);
-
   const handleFileUpload = () => {
-    document.getElementById("pdfInput").click(); // Trigger file input click
+    document.getElementById("pdfInput").value = ""; // Reset input field
+    document.getElementById("pdfInput").click();
   };
 
+  const handleDelete = () => {
+    setPdfHtml("");
+    setEditedHtml("");
+    localStorage.removeItem("pdfData");
+    setShowActions(false);
+  };
+
+  const handleEdit = () => {
+    setIsEditing(!isEditing);
+  };
+
+  const handleSaveEdit = () => {
+    setPdfHtml(editedHtml);
+    setIsEditing(false);
+    localStorage.setItem("pdfData", editedHtml);
+  };
+
+  const handleFinalSave = () => {
+    setShowActions(false);
+    setIsEditing(false);
+  };
+  props.func(pdfHtml)
   return (
     <div className="container mt-5" style={{ fontFamily: "Inter", fontSize: "large" }}>
-      
-      {/* Toggle Switch to show/hide upload button */}
-      
+      <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+        <button className="btn btn-primary mb-3" onClick={handleFileUpload}>Upload PDF</button>
+        <button className="btn btn-secondary mb-3" onClick={() => setShowActions(true)}>Enable Actions</button>
+      </div>
 
-      {/* Upload Button */}
-      {showUpload && (
-        <div style={{display:"flex",justifyContent:"center"}}>
-
-<button className="btn btn-primary mb-3" onClick={handleFileUpload}>
-          Upload PDF
-        </button>
-        </div>
-        
-      )}
-
-      {/* Hidden File Input */}
       <input
         type="file"
         id="pdfInput"
@@ -112,7 +124,32 @@ function PdfUploader(props) {
 
       {error && <div className="alert alert-danger">{error}</div>}
 
-      {/* Render the extracted HTML */}
+      {pdfHtml && (
+        <div>
+          {isEditing ? (
+            <textarea
+              className="form-control"
+              rows="10"
+              value={editedHtml}
+              onChange={(e) => setEditedHtml(e.target.value)}
+            />
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: pdfHtml }} />
+          )}
+
+          {showActions && (
+            <div className="mt-3">
+              {isEditing ? (
+                <button className="btn btn-success me-2" onClick={handleSaveEdit}>Save</button>
+              ) : (
+                <button className="btn btn-warning me-2" onClick={handleEdit}>Edit</button>
+              )}
+              <button className="btn btn-danger me-2" onClick={handleDelete}>Delete</button>
+              <button className="btn btn-success" onClick={handleFinalSave}>Final Save</button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
