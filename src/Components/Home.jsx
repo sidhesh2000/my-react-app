@@ -7,7 +7,6 @@ import  ScrollUpButton from "react-scroll-up-button";
 import ProgressBar from "react-scroll-progress-bar";
 import Minimap from 'react-minimap';
 import PdfUploader from '../Components/PdfUploader/PdfUploader'
-
 import { useState } from "react";
 //import {Helmet} from "react-helmet";
 //import './PageTracker.js';
@@ -45,6 +44,7 @@ const pull_data = (data) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []); // initialize event listeners on-mount & clean on-unmount
+  const currentUser = localStorage.getItem('currentUser');
 
   
   const contentStyle = {
@@ -140,14 +140,23 @@ const pull_data = (data) => {
            by <span>Storage Team</span>
          </div>
 */}  
-   
+   {currentUser =="Admin" ?
+   <div>
    <PdfUploader   func={pull_data}/>
    <div
+        
+   style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+   dangerouslySetInnerHTML={{ __html: first }}
+ ></div>
+ </div>
+   : 
+   <div style={{display:"none"}}><PdfUploader   func={pull_data}/></div>}
+  
+  <div
         
         style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
         dangerouslySetInnerHTML={{ __html: first }}
       ></div>
-     
   <p>
     <span style={{ color: "#004dbb" }}>
       <span style={{ fontFamily: 'inter' }}>

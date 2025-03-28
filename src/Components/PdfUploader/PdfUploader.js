@@ -1,29 +1,77 @@
 import { useState, useEffect } from "react";
 import * as pdfjsLib from "pdfjs-dist/build/pdf";
 import "bootstrap/dist/css/bootstrap.min.css";
+import UploadPdf from "../../assets/UploadPdf.gif";
+import EditIcon from "../../assets/EditIcon.png";
+import DeleteIcon from "../../assets/DeleteIcon.png";
+import SaveICon from "../../assets/SaveIcon.png";
+import { db, doc, getDoc, setDoc, updateDoc } from '../../firebase';
 
 // Set the worker source for PDF.js
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.worker.min.js`;
 
 function PdfUploader(props) {
-  const [pdfHtml, setPdfHtml] = useState(localStorage.getItem("pdfData") || "");
+  const [pdfHtml, setPdfHtml] = useState("");
   const [error, setError] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [editedHtml, setEditedHtml] = useState("");
-  const [showActions, setShowActions] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [fileName, setFileName] = useState("");
+  const [showActions, setShowActions] = useState(false); // New state for showing actions
 
+  // Document reference for Firebase
+  const docRef = doc(db, 'pdfData', 'currentPdf');
+
+  // Fetch PDF data from Firestore on component mount
   useEffect(() => {
-    if (pdfHtml) {
-      localStorage.setItem("pdfData", pdfHtml);
+    const fetchPdfData = async () => {
+      setIsLoading(true);
+      try {
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists() && docSnap.data().htmlData) {
+          setPdfHtml(docSnap.data().htmlData);
+          setEditedHtml(docSnap.data().htmlData);
+          setFileName(docSnap.data().fileName || "");
+        }
+      } catch (err) {
+        console.error("Error fetching document:", err);
+        setError("Failed to load PDF data.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPdfData();
+  }, []);
+
+  // Save or update PDF data in Firestore
+  const savePdfData = async (htmlData, name = "") => {
+    setIsLoading(true);
+    try {
+      await setDoc(docRef, {
+        htmlData,
+        fileName: name || fileName,
+        lastUpdated: new Date().toISOString()
+      });
+      setPdfHtml(htmlData);
+      setEditedHtml(htmlData);
+    } catch (err) {
+      console.error("Error saving data:", err);
+      setError("Failed to save data.");
+    } finally {
+      setIsLoading(false);
     }
-  }, [pdfHtml]);
+  };
 
   const extractText = async (file) => {
     if (!file) return;
 
+    setIsLoading(true);
     setPdfHtml("");
     setEditedHtml("");
     setError("");
+    setFileName(file.name);
 
     try {
       const reader = new FileReader();
@@ -58,25 +106,24 @@ function PdfUploader(props) {
             });
           }
 
-          const finalHtml = `
-            <div style="width: 100%; text-align: justify; font-family: 'Inter'; font-size: large;">
-              ${extractedHtml}
-            </div>` || "No text found in this PDF.";
-
-          setPdfHtml(finalHtml);
-          setEditedHtml(finalHtml);
+          const finalHtml = extractedHtml || "No text found in this PDF.";
+          await savePdfData(finalHtml, file.name);
         } catch (err) {
           console.error("PDF.js error:", err);
           setError("Failed to extract text from the PDF. It might be a scanned document.");
+        } finally {
+          setIsLoading(false);
         }
       };
 
       reader.onerror = () => {
         setError("Error reading the file.");
+        setIsLoading(false);
       };
     } catch (err) {
       console.error("File processing error:", err);
       setError("An unexpected error occurred. Please try again.");
+      setIsLoading(false);
     }
   };
 
@@ -85,33 +132,95 @@ function PdfUploader(props) {
     document.getElementById("pdfInput").click();
   };
 
-  const handleDelete = () => {
-    setPdfHtml("");
-    setEditedHtml("");
-    localStorage.removeItem("pdfData");
-    setShowActions(false);
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to delete this PDF content?")) {
+      setIsLoading(true);
+      try {
+        await setDoc(docRef, {
+          htmlData: "",
+          fileName: "",
+          lastUpdated: new Date().toISOString()
+        });
+        setPdfHtml("");
+        setEditedHtml("");
+        setFileName("");
+        setShowActions(false); // Hide actions after deletion
+      } catch (err) {
+        console.error("Error clearing document:", err);
+        setError("Failed to delete data.");
+      } finally {
+        setIsLoading(false);
+      }
+    }
   };
 
   const handleEdit = () => {
-    setIsEditing(!isEditing);
+    setIsEditing(true);
   };
 
-  const handleSaveEdit = () => {
-    setPdfHtml(editedHtml);
+  const handleSaveEdit = async () => {
+    await savePdfData(editedHtml);
     setIsEditing(false);
-    localStorage.setItem("pdfData", editedHtml);
   };
 
-  const handleFinalSave = () => {
-    setShowActions(false);
+  const handleCancelEdit = () => {
+    setEditedHtml(pdfHtml);
     setIsEditing(false);
   };
-  props.func(pdfHtml)
+
+  const toggleActions = () => {
+    setShowActions(!showActions);
+  };
+
+  props.func(pdfHtml);
+
   return (
     <div className="container mt-5" style={{ fontFamily: "Inter", fontSize: "large" }}>
       <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-        <button className="btn btn-primary mb-3" onClick={handleFileUpload}>Upload PDF</button>
-        <button className="btn btn-secondary mb-3" onClick={() => setShowActions(true)}>Enable Actions</button>
+        <button 
+          className="btn btn-primary " 
+          onClick={handleFileUpload}
+          disabled={isLoading}
+        >
+          {isLoading ? "Processing..." : "Upload PDF"}
+        </button>
+        
+        {pdfHtml && !isLoading && (<div style={{display:"flex",gap:"1rem"}}>
+          <button 
+            className={`btn  ${showActions ? "btn-secondary" : "btn-outline-primary"}`}
+            onClick={toggleActions}
+          >
+            {showActions ? "Hide Actions" : "Enable Actions"}
+          </button>
+          {!isEditing && showActions?
+           <div style={{alignItems:"center"}} className="d-flex justify-content-center gap-3 ">
+           <div onClick={handleEdit} style={{cursor:"pointer",display:"flex",alignItems:"center"}}>
+           <img src={EditIcon} height="20"/>
+           </div>
+           <div onClick={handleDelete} style={{cursor:"pointer",display:"flex",alignItems:"center"}}>
+           <img src={DeleteIcon} height="20"/>
+           </div></div> :"" }
+           {pdfHtml && !isLoading && (
+  <div >
+    {isEditing ? (
+      <div className="d-flex justify-content-center gap-2">
+      <button className="btn btn-success" onClick={handleSaveEdit}>
+        Save Changes
+      </button>
+      <button className="btn btn-secondary" onClick={handleCancelEdit}>
+        Cancel
+      </button>
+    </div>
+    ) : (
+   "" 
+    )}
+  </div>
+)}
+
+           
+         
+          </div>
+        )}
       </div>
 
       <input
@@ -124,30 +233,37 @@ function PdfUploader(props) {
 
       {error && <div className="alert alert-danger">{error}</div>}
 
-      {pdfHtml && (
-        <div>
-          {isEditing ? (
-            <textarea
-              className="form-control"
-              rows="10"
-              value={editedHtml}
-              onChange={(e) => setEditedHtml(e.target.value)}
-            />
-          ) : (
-            <div dangerouslySetInnerHTML={{ __html: pdfHtml }} />
-          )}
+      {isLoading && (
+        <div className="text-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
 
-          {showActions && (
-            <div className="mt-3">
-              {isEditing ? (
-                <button className="btn btn-success me-2" onClick={handleSaveEdit}>Save</button>
-              ) : (
-                <button className="btn btn-warning me-2" onClick={handleEdit}>Edit</button>
-              )}
-              <button className="btn btn-danger me-2" onClick={handleDelete}>Delete</button>
-              <button className="btn btn-success" onClick={handleFinalSave}>Final Save</button>
+      {pdfHtml && !isLoading && (
+        <div className="mt-3">
+          {isEditing ? (
+            <div>
+              <textarea
+                className="form-control mb-2"
+                rows="10"
+                style={{ height: "10rem" }}
+                value={editedHtml}
+                onChange={(e) => setEditedHtml(e.target.value)}
+              />
+           
             </div>
+          ) : (
+            ""
           )}
+        </div>
+      )}
+
+      {!pdfHtml && !isLoading && (
+        <div className="text-center">
+          <img src={UploadPdf} alt="Upload PDF" style={{ maxWidth: "300px" }} />
+          <p className="mt-2">Upload a PDF file to get started</p>
         </div>
       )}
     </div>

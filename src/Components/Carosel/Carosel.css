@@ -86,7 +86,9 @@ color: #22d1ee;
         height: 15rem;
         margin-left: -4rem;
     }
- 
+ .textAlignCenterCss{
+    text-align: center;
+ }
 
   }
   .fnWhmJ {

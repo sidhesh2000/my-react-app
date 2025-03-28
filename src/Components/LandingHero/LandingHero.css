@@ -71,5 +71,8 @@ text-align: center;
     .InnerCont2{
       display: none;
     }
+    .LandingBg{
+      height: 80vh;
+    }
 
   }

@@ -19,6 +19,7 @@ import "./Desktop16.css";
 //import Slide from 'react-reveal/Slide';
 //import Reveal from 'react-reveal/Reveal';
 import  Fade from 'react-reveal/Fade';
+import  User from '../../src/assets/user.png'
 //import  Flash from 'react-reveal/Fade';
 
 //import { Hero } from "./Header";
@@ -44,6 +45,7 @@ import LandingHero from "./LandingHero/LandingHero";
 import LandingHeroMb from "./LandingHero/LandingHeroMb";
 
 export const Desktop1 = () => {
+  const currentUser = localStorage.getItem('currentUser');
   /*
   const onButtonabsoluteIconClick = useCallback(() => {
     // Please sync "Desktop - 15" to the project
@@ -134,92 +136,62 @@ export const Desktop1 = () => {
   return (
    <div>
     <div>
-  <div className="hero-1">
-    {/*  <div className="rectangle-3-2" />
-      <div className="rectangle-2-2" />
-      <div className="hero-1-child" /> */}
-    <div className="home" onClick={handleClick1} style={{ cursor: 'pointer' }}>
-      <AnimationWrapper
-        config={{
-          color: {
-            initial: '#121517',
-            onHover: '#407bff',
-          },
-          fontSize: {
-            initial: '16px',
-            onHover: '18px',
-          },
-        }}
-      >
-        Home
-      </AnimationWrapper>
+    <div className="header-container">
+      <img
+        className="header-logo"
+        alt="TCS Enterprise Cloud Logo"
+        src={require('../assets/TCSECP-Logo.png')}
+      />
+      <nav className="header-nav">
+        <div className="header-nav-item" onClick={handleClick1} style={{ cursor: 'pointer' }}>
+          <AnimationWrapper
+            config={{
+              color: { initial: '#121517', onHover: '#407bff' },
+              fontSize: { initial: '16px', onHover: '18px' },
+            }}
+          >
+            Home
+          </AnimationWrapper>
+        </div>
+        <div className="header-nav-item" onClick={handleClick} style={{ cursor: 'pointer' }}>
+          <AnimationWrapper
+            config={{
+              color: { initial: '#121517', onHover: '#407bff' },
+              fontSize: { initial: '16px', onHover: '18px' },
+            }}
+          >
+            Solutions
+          </AnimationWrapper>
+        </div>
+        <div className="header-nav-item" onClick={handleClick2} style={{ cursor: 'pointer' }}>
+          <AnimationWrapper
+          style={{ cursor:"pointer"}}
+            config={{
+              color: { initial: '#121517', onHover: '#407bff' },
+              fontSize: { initial: '16px', onHover: '18px' },
+            }}
+          >
+            Products
+          </AnimationWrapper>
+        </div>
+        <div className="header-nav-item">
+          <Link to="/learn" style={{ textDecoration: 'none', color: '#121517', fontWeight: '600' }}>
+            <AnimationWrapper
+              style={{ textAlign: 'center', padding: '6px', cursor:"pointer" }}
+              config={{
+                color: { initial: '#121517', onHover: '#407bff' },
+                fontSize: { initial: '16px', onHover: '18px' },
+              }}
+            >
+              Learn
+            </AnimationWrapper>
+          </Link>
+        </div>
+        <div className="header-user"><img height="15" src={User}/>{currentUser}</div>
+      </nav>
+      
     </div>
-    <div className="rectangle-2-3" />
-    {/*   <div className="sign-in">
-        <div className="sign-in-2">Log out</div>
-      </div> */}
-    <img
-      className="thumbnail-image003-1-2-icon"
-      alt=""
-      src={require('../assets/TCSECP-Logo.png')}
-    />
-    <div className="solutions1" onClick={handleClick} style={{ cursor: 'pointer', color: '#121517' }}>
-      <div className="solutions-2">
-        <AnimationWrapper
-          config={{
-            color: {
-              initial: '#121517',
-              onHover: '#407bff',
-            },
-            fontSize: {
-              initial: '16px',
-              onHover: '18px',
-            },
-          }}
-        >
-          Solutions
-        </AnimationWrapper>
-      </div>
-    </div>
-    <div className="products" onClick={handleClick2} style={{ cursor: 'pointer', color: '#121517' }}>
-      <AnimationWrapper
-        config={{
-          color: {
-            initial: '#121517',
-            onHover: '#407bff',
-          },
-          fontSize: {
-            initial: '16px',
-            onHover: '18px',
-          },
-        }}
-      >
-        Products
-      </AnimationWrapper>
-    </div>
-    <div className="learn">
-      <Link to="/learn" style={{ textDecoration: 'none', color: '#121517', fontWeight: '600' }}>
-        <AnimationWrapper
-          style={{
-            textAlign: 'center',
-            padding: '6px',
-          }}
-          config={{
-            color: {
-              initial: '#121517',
-              onHover: '#407bff',
-            },
-            fontSize: {
-              initial: '16px',
-              onHover: '18px',
-            },
-          }}
-        >
-          Learn
-        </AnimationWrapper>
-      </Link>
-    </div>
-  </div> {/* Closing tag for hero-1 */}
+ {/* Closing tag for hero-1 */}
 </div> {/* Closing tag for the outer div */}
 <div ref={ref1} id="">
 <div className="showen">

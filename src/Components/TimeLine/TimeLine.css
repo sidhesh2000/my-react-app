@@ -3,6 +3,7 @@
     font-size: var(--font-size-21xl);
     font-family: var(--font-bebas-neue);
     padding: 3rem;
+
 }
 .headingsNew{
     display:flex;
@@ -19,4 +20,7 @@
     font-size: 19px;
     color: var(--color-gray-100);
   }
-  
+  @media (max-width: 768px) {
+  .well-help-digitally-containers{
+    text-align: center;
+  }}

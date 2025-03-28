@@ -29,7 +29,7 @@ function Carosel() {
       <div gla="sectionbg-purple-25">
       <div gla="heading">
           <div className='HeadingContainer'>
-            <div>
+            <div className='textAlignCenterCss'>
             <span className='blackheader'>{`We'll help `}</span>
             <span className='blackheader'>digitally</span>
             <span gla="span">{` `}</span>
