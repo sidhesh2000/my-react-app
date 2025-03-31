@@ -152,11 +152,6 @@ const pull_data = (data) => {
    : 
    <div style={{display:"none"}}><PdfUploader   func={pull_data}/></div>}
   
-  <div
-        
-        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
-        dangerouslySetInnerHTML={{ __html: first }}
-      ></div>
   <p>
     <span style={{ color: "#004dbb" }}>
       <span style={{ fontFamily: 'inter' }}>
