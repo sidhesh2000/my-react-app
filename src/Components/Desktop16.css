@@ -5919,3 +5919,65 @@ body {
       visibility: visible;
     }
   }
+  .mobile-menu-wrapper{
+    display: none;
+  }
+  /* Hide desktop nav on mobile */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-menu-icon {
+    display: block;
+  }
+  .mobile-menu-wrapper{
+    display: block;
+  }
+}
+
+/* Show desktop nav on larger screens */
+@media (min-width: 769px) {
+  .mobile-menu-icon {
+    display: none;
+  }
+  .mobile-nav {
+    display: none;
+  }
+}
+.mobile-menu-wrapper {
+  position: fixed;
+  top: 3rem;
+  z-index: 100000;
+  background: white;
+  width: 100%;
+  
+}
+/* Mobile menu styles */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.mobile-nav-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-user {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-menu-icon {
+  cursor: pointer;
+  margin-left: auto;
+  padding: 10px;
+}

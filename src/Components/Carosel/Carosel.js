@@ -38,7 +38,7 @@ function Carosel() {
             </div> </div>
         </div>
         <div gla="divcontainer">
-          <div gla="divrelative">
+          <div className="BgCloud">
             <Carousel itemsToShow={itemsToShow}>
               {carouselData.map((item) => (
                 <Item key={item.id}>
