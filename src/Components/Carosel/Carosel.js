@@ -64,11 +64,11 @@ function Carosel() {
                       </div>
                       <div gla={item.contentClass}>
                         <span gla="satishchandra-doreswamy-vice-container1">
-                          <p gla="satishchandra-doreswamy">{item.name}</p>
+                          <p style={{paddingTop:"1rem"}} gla="satishchandra-doreswamy">{item.name}</p>
                           <p className="carosel1guy">{item.role}</p>
                         </span>
                       </div>
-                      <div className={item.textClass}>{item.quote}</div>
+                      <div style={{paddingTop:"0.5rem"}} className={item.textClass}>{item.quote}</div>
                      
                     </div>
                   </div>

@@ -55,7 +55,11 @@ function HeaderHero(props) {
     }, []);
   */
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
+  const navigate = useNavigate();
+  const NavigatePage = ()=>{
+  navigate("/login")
+  }
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -144,7 +148,7 @@ function HeaderHero(props) {
        // Cleanup
        return () => window.removeEventListener('resize', handleResize);
      }, []);
-     const navigate = useNavigate();
+    
      const handleLearnClick = () => {
       navigate("/learn");
     };
@@ -226,7 +230,8 @@ function HeaderHero(props) {
   </div>
   
   {/* Hover state (hidden by default) */}
-  <div className="logout-content">
+  <div onClick={NavigatePage} className="logout-content">
+    
     <img height="15" src={LogoutIcon} /> {/* Replace with your logout icon */}
     <span>Logout</span>
   </div>

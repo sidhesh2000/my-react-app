@@ -285,12 +285,12 @@ function PdfUploader(props) {
         </div>
       )}
 
-      {!pdfDocuments.length && !isLoading && (
+      {/* {!pdfDocuments.length && !isLoading && (
         <div className="text-center">
           <img src={UploadPdf} alt="Upload PDF" style={{ maxWidth: "300px" }} />
           <p className="mt-2">Upload PDF files to get started</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

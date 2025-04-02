@@ -23,7 +23,7 @@ const carouselData = [
       figureClass: 'carosel2',
       gatsbyClass: 'divgatsby-image-wrapper1',
       avatarClass: 'avatar-icons1',
-      contentClass: 'dr-rajesh-srinivasan-container',
+      contentClass: 'satishchandra-doreswamy-vice-container',
       textClass: 'synergizing-your-its',
     },
     {
