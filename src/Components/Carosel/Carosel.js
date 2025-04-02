@@ -27,7 +27,11 @@ function Carosel() {
   return (
     <div style={{ position: 'relative' }}>
       <div gla="sectionbg-purple-25">
-      <div gla="heading">
+     
+        <div gla="divcontainer">
+          <div style={{height:"100%"}} className="BgCloud">
+         <div>
+         <div style={{paddingTop:"2rem"}}gla="heading">
           <div className='HeadingContainer'>
             <div className='textAlignCenterCss'>
             <span className='blackheader'>{`We'll help `}</span>
@@ -37,8 +41,7 @@ function Carosel() {
             <span className='blackheader'> your business</span>
             </div> </div>
         </div>
-        <div gla="divcontainer">
-          <div className="BgCloud">
+         </div>
             <Carousel itemsToShow={itemsToShow}>
               {carouselData.map((item) => (
                 <Item key={item.id}>

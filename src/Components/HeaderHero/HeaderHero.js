@@ -218,8 +218,11 @@ function HeaderHero(props) {
       <div className="header-user">
   {/* Default state (visible) */}
   <div className="user-content">
-    <img height="15" src={User} />
-    <span>{currentUser}</span>
+    <div>
+    <img height="13" style={{marginBottom:"2px"}} src={User} />
+    <span>     {currentUser}</span>
+    </div>
+    
   </div>
   
   {/* Hover state (hidden by default) */}

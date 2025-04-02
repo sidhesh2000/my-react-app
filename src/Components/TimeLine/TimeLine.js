@@ -1,7 +1,7 @@
 import React from 'react';
 import "./TimeLine.css";
 import { Fade } from 'react-bootstrap';
-
+import { useIntersectionObserver } from './IntersectionObserver';
 function TimeLine() {
   // Reusable assets
   const lineImage = require('../../assets/Line 2.png');
@@ -73,9 +73,16 @@ function TimeLine() {
       bClass: "b1",
     },
   ];
+  const [ref, isVisible] = useIntersectionObserver({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
 
+  if (!isVisible) {
+    return <div ref={ref} style={{ height: '100vh' }} />;
+  }
   return (
-    <div>
+    <div ref={ref}>
       <div className="headingsNew">
         <div className="well-help-digitally-containers">
           <span>{`We'll help `}</span>
