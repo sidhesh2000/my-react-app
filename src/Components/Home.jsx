@@ -3,17 +3,20 @@ import SideBar from "./Sidebar";
 import { Hero } from "./Header";
 import './blog.css'
 import  ScrollUpButton from "react-scroll-up-button";
-
+import { useNavigate } from "react-router";
 import ProgressBar from "react-scroll-progress-bar";
 import Minimap from 'react-minimap';
 import PdfUploader from '../Components/PdfUploader/PdfUploader'
 import { useState } from "react";
+import HeaderHero from "./HeaderHero/HeaderHero";
 //import {Helmet} from "react-helmet";
 //import './PageTracker.js';
 
 
 export const Home = () => {
+  const Navigate = useNavigate()
   const [first, setfirst] = useState()
+  const [currentClick, setCurrentClick] = useState("");
  //refresh
  const refreshPage = ()=>{
   window.location.reload();
@@ -34,16 +37,29 @@ const pull_data = (data) => {
       // write other logic here such as disabling hamburger button
     }
   }
-
+  const pullData = (v) =>{
+    setCurrentClick(v)
+     }
   React.useEffect(() => {
     window.addEventListener("resize", handleResize);
+console.log(currentClick,"clicknew");
 
     handleResize(); // on-component-mount, check already to see if user has a small device
-
+    if(currentClick == "click"){
+      Navigate("/")
+     }
+    
+      if (currentClick == "click1") {
+        Navigate("/?solution")
+      }
+     
+     if(currentClick == "click2"){
+      Navigate("/?products")
+     }
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []); // initialize event listeners on-mount & clean on-unmount
+  }, [currentClick]); // initialize event listeners on-mount & clean on-unmount
   const currentUser = localStorage.getItem('currentUser');
 
   
@@ -51,6 +67,7 @@ const pull_data = (data) => {
     marginLeft: sideNavExpanded ? "250px" : "70px", // arbitrary values
     transition: "margin 0.2s ease"
   };
+ 
     return (
       <>
    
@@ -64,7 +81,7 @@ const pull_data = (data) => {
     /> 
         <header>
           <div className="container" id="solution">
-          <Hero/>
+          <HeaderHero func={pullData}/>
           
             <blockquote>
             <span style={{  fontFamily:"Bebas Neue", fontSize:"40px", color:"#000"}}>TCSECP User Guide</span>

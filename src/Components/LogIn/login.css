@@ -1,0 +1,13 @@
+.BgCloud {
+    width: 100%;
+    height: 100vh;
+
+    
+    background-image: url(../../assets/imageedit_4_8452225823.png) ; 
+    background-size: cover;
+    background-repeat: repeat-x repeat-y;
+    background-position: top;
+    opacity: 0.5px;
+    display: flex;
+align-items: center;
+  }

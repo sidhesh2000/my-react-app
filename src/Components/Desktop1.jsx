@@ -37,14 +37,17 @@ import { HashLink } from 'react-router-hash-link';
 
 /* Nav Link */
 
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 import { useRef } from 'react';
 import Features from "./Features/Features";
 import LandingHero from "./LandingHero/LandingHero";
 import LandingHeroMb from "./LandingHero/LandingHeroMb";
+import HeaderHero from "./HeaderHero/HeaderHero";
 
 export const Desktop1 = () => {
+
+
   const currentUser = localStorage.getItem('currentUser');
   /*
   const onButtonabsoluteIconClick = useCallback(() => {
@@ -120,6 +123,12 @@ const toggleMobileMenu = () => {
 
  
  const [itemsToShow, setItemsToShow] = useState(2);
+ const [currentClick, setCurrentClick] = useState("");
+ const Pull_Data = (v) =>{
+setCurrentClick(v)
+ }
+ console.log(window.location.search ,"check");
+ 
   useEffect(() => {
      const handleResize = () => {
        if (window.innerWidth <= 768) { // Adjust breakpoint for mobile
@@ -128,7 +137,15 @@ const toggleMobileMenu = () => {
          setItemsToShow(2); // Show 2 items on larger screens
        }
      };
- 
+ if(currentClick == "click" ){
+  handleClick()
+ }
+ if(currentClick == "click1" || window.location.search == "?solution"){
+  handleClick()
+ }
+ if(currentClick == "click2" || window.location.search == "?products"){
+  handleClick2()
+ }
      // Initial check
      handleResize();
  
@@ -137,127 +154,14 @@ const toggleMobileMenu = () => {
  
      // Cleanup
      return () => window.removeEventListener('resize', handleResize);
-   }, []);
+   }, [currentClick,window.location.search]);
+   const navigate = useNavigate();
+   const handleLearnClick = () => {
+    navigate("/learn");
+  };
   return (
    <div>
-    <div>
-  <div className="header-container">
-    <img
-      className="header-logo"
-      alt="TCS Enterprise Cloud Logo"
-      src={require('../assets/TCSECP-Logo.png')}
-    />
-    
-    {/* Hamburger menu icon for mobile */}
-    <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
-      <img
-        src={require('../assets/MenuImg.png')} // or use an SVG/icon library
-        alt="Menu"
-        style={{ width: '24px', height: '24px' }}
-      />
-    </div>
-    
-    {/* Regular navigation for desktop */}
-    <nav className="header-nav desktop-nav">
-      <div className="header-nav-item" onClick={handleClick1} style={{ cursor: 'pointer' }}>
-        <AnimationWrapper
-          config={{
-            color: { initial: '#121517', onHover: '#407bff' },
-            fontSize: { initial: '16px', onHover: '18px' },
-          }}
-        >
-          Home
-        </AnimationWrapper>
-      </div>
-      <div className="header-nav-item" onClick={handleClick} style={{ cursor: 'pointer' }}>
-        <AnimationWrapper
-          config={{
-            color: { initial: '#121517', onHover: '#407bff' },
-            fontSize: { initial: '16px', onHover: '18px' },
-          }}
-        >
-          Solutions
-        </AnimationWrapper>
-      </div>
-      <div className="header-nav-item" onClick={handleClick2} style={{ cursor: 'pointer' }}>
-        <AnimationWrapper
-          style={{ cursor:"pointer"}}
-          config={{
-            color: { initial: '#121517', onHover: '#407bff' },
-            fontSize: { initial: '16px', onHover: '18px' },
-          }}
-        >
-          Products
-        </AnimationWrapper>
-      </div>
-      <div className="header-nav-item">
-        <Link to="/learn" style={{ textDecoration: 'none', color: '#121517', fontWeight: '600' }}>
-          <AnimationWrapper
-            style={{ textAlign: 'center', padding: '6px', cursor:"pointer" }}
-            config={{
-              color: { initial: '#121517', onHover: '#407bff' },
-              fontSize: { initial: '16px', onHover: '18px' },
-            }}
-          >
-            Learn
-          </AnimationWrapper>
-        </Link>
-      </div>
-      <div className="header-user"><img height="15" src={User}/>{currentUser}</div>
-    </nav>
-  </div>
-  
-  {/* Mobile menu that appears when hamburger is clicked */}
-  {isMobileMenuOpen && (
-    <div className="mobile-menu-wrapper">
-    <nav className="mobile-nav">
-      <div className="mobile-nav-item" onClick={() => { handleClick1(); toggleMobileMenu(); }}>
-        <AnimationWrapper
-          config={{
-            color: { initial: '#121517', onHover: '#407bff' },
-            fontSize: { initial: '16px', onHover: '18px' },
-          }}
-        >
-          Home
-        </AnimationWrapper>
-      </div>
-      <div className="mobile-nav-item" onClick={() => { handleClick(); toggleMobileMenu(); }}>
-        <AnimationWrapper
-          config={{
-            color: { initial: '#121517', onHover: '#407bff' },
-            fontSize: { initial: '16px', onHover: '18px' },
-          }}
-        >
-          Solutions
-        </AnimationWrapper>
-      </div>
-      <div className="mobile-nav-item" onClick={() => { handleClick2(); toggleMobileMenu(); }}>
-        <AnimationWrapper
-          config={{
-            color: { initial: '#121517', onHover: '#407bff' },
-            fontSize: { initial: '16px', onHover: '18px' },
-          }}
-        >
-          Products
-        </AnimationWrapper>
-      </div>
-      <div className="mobile-nav-item">
-        <Link to="/learn" onClick={toggleMobileMenu} style={{ textDecoration: 'none', color: '#121517', fontWeight: '600' }}>
-          <AnimationWrapper
-            config={{
-              color: { initial: '#121517', onHover: '#407bff' },
-              fontSize: { initial: '16px', onHover: '18px' },
-            }}
-          >
-            Learn
-          </AnimationWrapper>
-        </Link>
-      </div>
-      <div className="mobile-user"><img height="15" src={User}/>{currentUser}</div>
-    </nav>
-    </div>
-  )}
-</div> {/* Closing tag for the outer div */}
+  <HeaderHero func={Pull_Data}/>{/* Closing tag for the outer div */}
 <div ref={ref1} id="">
 <div className="showen">
   <LandingHero />
