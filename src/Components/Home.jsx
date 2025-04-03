@@ -9,6 +9,7 @@ import Minimap from 'react-minimap';
 import PdfUploader from '../Components/PdfUploader/PdfUploader'
 import { useState } from "react";
 import HeaderHero from "./HeaderHero/HeaderHero";
+import Pdf from "pdfjs-dist/build/pdf";
 //import {Helmet} from "react-helmet";
 //import './PageTracker.js';
 
@@ -16,14 +17,36 @@ import HeaderHero from "./HeaderHero/HeaderHero";
 export const Home = () => {
   const Navigate = useNavigate()
   const [first, setfirst] = useState()
+  const [second, setSecond] = useState()
+  const [third, setThird] = useState()
+  const [fourth, setFourth] = useState()
+  const [fifth, setFifth] = useState()
   const [currentClick, setCurrentClick] = useState("");
  //refresh
  const refreshPage = ()=>{
   window.location.reload();
 }
-const pull_data = (data) => {
-  setfirst(data); // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
-}
+const handleNetworkContent = (content) => {
+  setSecond( content);
+  // Update your network-related state here
+};
+const handleComputeContent = (content) => {
+  setThird( content);
+  // Update your network-related state here
+};
+const handleStorageContent = (content) => {
+ setfirst(content);
+  // Update your storage-related state here
+};
+const handleAlphaDataProtection = (content) => {
+  setFourth(content);
+   // Update your storage-related state here
+ };
+ const handleAccessGuide = (content) => {
+  setFifth(content);
+   // Update your storage-related state here
+ };
+
    // by default, I initialized expanded to true for responsiveness demo
   // drag the demo window until it is below 375 width to see sidebar collapse
   
@@ -159,7 +182,10 @@ console.log(currentClick,"clicknew");
 */}  
    {currentUser =="Admin" ?
    <div>
-   <PdfUploader   func={pull_data}/>
+   <PdfUploader 
+        section="storage"
+        func={handleStorageContent}
+      />
    <div
         
    style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
@@ -167,7 +193,8 @@ console.log(currentClick,"clicknew");
  ></div>
  </div>
    : 
-   <div style={{display:"none"}}><PdfUploader   func={pull_data}/></div>}
+   <div style={{display:"none"}}><PdfUploader section="storage"
+   func={handleNetworkContent} /></div>}
   
   <p>
     <span style={{ color: "#004dbb" }}>
@@ -1287,7 +1314,15 @@ Reporting of buckets provisioned
         <div class="section__content">
         <section>
         <div className="container">
-      
+        <PdfUploader 
+        section="network"
+        func={handleNetworkContent}
+      />
+       <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: second }}
+      ></div>
         <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">Network</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             Use cases for software-defined storage vary by product with
@@ -4009,7 +4044,15 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" id="style-1">
         <section>
         <div className="container">
-          
+        <PdfUploader 
+        section="compute"
+        func={handleComputeContent}
+      />
+       <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: third }}
+      ></div>
             <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">Compute</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             A typical organization will refresh their storage infrastructure
@@ -5851,7 +5894,15 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" id="style-1">
         <section>
         <div className="container">
-           
+        <PdfUploader 
+        section="AlphaDataProtection"
+        func={handleAlphaDataProtection}
+      />
+       <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: fourth }}
+      ></div>
             <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">ADPS</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             A typical organization will refresh their storage infrastructure
@@ -5900,7 +5951,15 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" >
         <section>
         <div className="container" >
-         
+        <PdfUploader 
+        section="Guide"
+        func={handleAccessGuide}
+      />
+   <div
+        
+   style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+   dangerouslySetInnerHTML={{ __html: fifth }}
+ ></div>
             <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">Guide</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             A typical organization will refresh their storage infrastructure

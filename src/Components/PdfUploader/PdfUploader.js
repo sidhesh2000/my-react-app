@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import * as pdfjsLib from "pdfjs-dist/build/pdf";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UploadPdf from "../../assets/UploadPdf.gif";
 import EditIcon from "../../assets/EditIcon.png";
 import DeleteIcon from "../../assets/DeleteIcon.png";
 import SaveICon from "../../assets/SaveIcon.png";
-import { db, doc, getDoc, setDoc, updateDoc, deleteDoc } from '../../firebase';
+import { db, doc, getDoc, setDoc } from '../../firebase';
 
-// Set the worker source for PDF.js
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.worker.min.js`;
 
-function PdfUploader(props) {
+function PdfUploader({ section, func }) {
   const [pdfDocuments, setPdfDocuments] = useState([]);
   const [error, setError] = useState("");
   const [isEditing, setIsEditing] = useState(null);
@@ -18,10 +17,10 @@ function PdfUploader(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [activeDocumentId, setActiveDocumentId] = useState(null);
 
-  // Main document reference
-  const mainDocRef = doc(db, 'pdfDocuments', 'mainCollection');
-
-  // Fetch all documents on mount
+  const mainDocRef = useMemo(() => 
+    doc(db, 'pdfDocuments', section), 
+    [section]
+  );
   useEffect(() => {
     const fetchDocuments = async () => {
       setIsLoading(true);
@@ -29,9 +28,10 @@ function PdfUploader(props) {
         const docSnap = await getDoc(mainDocRef);
         if (docSnap.exists() && docSnap.data().documents) {
           setPdfDocuments(docSnap.data().documents);
-          if (docSnap.data().documents.length > 0) {
-            setActiveDocumentId(docSnap.data().documents[0].id);
-          }
+          setActiveDocumentId(docSnap.data().documents[0]?.id || null);
+        } else {
+          setPdfDocuments([]);
+          setActiveDocumentId(null);
         }
       } catch (err) {
         console.error("Error fetching documents:", err);
@@ -42,9 +42,8 @@ function PdfUploader(props) {
     };
 
     fetchDocuments();
-  }, []);
+  }, [mainDocRef]);
 
-  // Save all documents
   const saveAllDocuments = async (documents) => {
     setIsLoading(true);
     try {
@@ -58,7 +57,6 @@ function PdfUploader(props) {
     }
   };
 
-  // Extract text from PDF
   const extractText = async (file) => {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -73,15 +71,13 @@ function PdfUploader(props) {
             const content = await page.getTextContent();
 
             content.items.forEach((item) => {
-              let text = item.str;
+              const text = item.str;
               if (!text.trim()) return;
 
               const isHeading = text === text.toUpperCase();
 
               if (isHeading) {
-                if (prevItem) {
-                  extractedHtml += "<br/><br/>";
-                }
+                if (prevItem) extractedHtml += "<br/><br/>";
                 extractedHtml += `<strong style="color: #407bff; font-family: 'Inter', sans-serif;">${text}</strong><br/>`;
               } else {
                 extractedHtml += `<span style="font-family: 'Inter', font-size: large;">${text}</span> `;
@@ -96,7 +92,8 @@ function PdfUploader(props) {
             fileName: file.name,
             htmlData: extractedHtml || "No text found in this PDF.",
             createdAt: new Date().toISOString(),
-            lastUpdated: new Date().toISOString()
+            lastUpdated: new Date().toISOString(),
+            section: section
           });
         } catch (err) {
           console.error("PDF processing error:", err);
@@ -105,7 +102,8 @@ function PdfUploader(props) {
             fileName: file.name,
             htmlData: "Could not extract text (may be scanned PDF)",
             createdAt: new Date().toISOString(),
-            lastUpdated: new Date().toISOString()
+            lastUpdated: new Date().toISOString(),
+            section: section
           });
         }
       };
@@ -113,7 +111,6 @@ function PdfUploader(props) {
     });
   };
 
-  // Handle file upload
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files);
     if (files.length === 0) return;
@@ -138,7 +135,6 @@ function PdfUploader(props) {
       .finally(() => setIsLoading(false));
   };
 
-  // Delete document
   const handleDelete = (docId) => {
     if (window.confirm("Are you sure you want to delete this PDF document?")) {
       const updatedDocs = pdfDocuments.filter(doc => doc.id !== docId);
@@ -150,7 +146,6 @@ function PdfUploader(props) {
     }
   };
 
-  // Edit document
   const handleEdit = (docId) => {
     const document = pdfDocuments.find(doc => doc.id === docId);
     if (document) {
@@ -159,38 +154,28 @@ function PdfUploader(props) {
     }
   };
 
-  // Save edit
   const handleSaveEdit = () => {
     const updatedDocs = pdfDocuments.map(doc => 
       doc.id === isEditing 
         ? { ...doc, htmlData: editedHtml, lastUpdated: new Date().toISOString() } 
         : doc
     );
-    saveAllDocuments(updatedDocs).then(() => {
-      setIsEditing(null);
-    });
+    saveAllDocuments(updatedDocs).then(() => setIsEditing(null));
   };
 
-  // Cancel edit
-  const handleCancelEdit = () => {
-    setIsEditing(null);
-  };
+  const handleCancelEdit = () => setIsEditing(null);
 
-  // Set active document
   const handleDocumentSelect = (docId) => {
     setActiveDocumentId(docId);
     setIsEditing(null);
   };
 
-  // Pass content to parent
   useEffect(() => {
     if (activeDocumentId) {
       const activeDoc = pdfDocuments.find(doc => doc.id === activeDocumentId);
-      if (activeDoc) {
-        props.func(activeDoc.htmlData);
-      }
+      func(activeDoc?.htmlData || "");
     } else {
-      props.func("");
+      func("");
     }
   }, [activeDocumentId, pdfDocuments]);
 
@@ -199,10 +184,10 @@ function PdfUploader(props) {
       <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
         <button 
           className="btn btn-primary" 
-          onClick={() => document.getElementById("pdfInput").click()}
+          onClick={() => document.getElementById(`pdfInput-${section}`).click()}
           disabled={isLoading}
         >
-          {isLoading ? "Processing..." : "Upload PDF(s)"}
+          {isLoading ? "Processing..." : `Upload PDF(s) for ${section}`}
         </button>
         
         {pdfDocuments.length > 0 && (
@@ -222,11 +207,11 @@ function PdfUploader(props) {
             </select>
             
             {activeDocumentId && !isEditing && (
-              <div style={{alignItems:"center"}} className="d-flex justify-content-center gap-3">
-                <div onClick={() => handleEdit(activeDocumentId)} style={{cursor:"pointer",display:"flex",alignItems:"center"}}>
+              <div className="d-flex justify-content-center gap-3">
+                <div onClick={() => handleEdit(activeDocumentId)} style={{cursor:"pointer"}}>
                   <img src={EditIcon} height="20" alt="Edit"/>
                 </div>
-                <div onClick={() => handleDelete(activeDocumentId)} style={{cursor:"pointer",display:"flex",alignItems:"center"}}>
+                <div onClick={() => handleDelete(activeDocumentId)} style={{cursor:"pointer"}}>
                   <img src={DeleteIcon} height="20" alt="Delete"/>
                 </div>
               </div>
@@ -237,7 +222,7 @@ function PdfUploader(props) {
 
       <input
         type="file"
-        id="pdfInput"
+        id={`pdfInput-${section}`}
         accept="application/pdf"
         className="form-control d-none"
         onChange={handleFileUpload}
@@ -261,13 +246,13 @@ function PdfUploader(props) {
               <textarea
                 className="form-control mb-2"
                 rows="10"
-                style={{ height: "10rem" }}
                 value={editedHtml}
                 onChange={(e) => setEditedHtml(e.target.value)}
               />
               <div className="d-flex justify-content-center gap-2">
                 <button className="btn btn-success" onClick={handleSaveEdit}>
-                  Save Changes
+                  <img src={SaveICon} height="20" alt="Save" className="me-2"/>
+                  Save
                 </button>
                 <button className="btn btn-secondary" onClick={handleCancelEdit}>
                   Cancel
@@ -275,12 +260,7 @@ function PdfUploader(props) {
               </div>
             </div>
           ) : (
-            // <div 
-            //   dangerouslySetInnerHTML={{
-            //     __html: pdfDocuments.find(doc => doc.id === activeDocumentId).htmlData
-            //   }}
-            // />
-            ""
+           ""
           )}
         </div>
       )}
@@ -288,7 +268,7 @@ function PdfUploader(props) {
       {/* {!pdfDocuments.length && !isLoading && (
         <div className="text-center">
           <img src={UploadPdf} alt="Upload PDF" style={{ maxWidth: "300px" }} />
-          <p className="mt-2">Upload PDF files to get started</p>
+          <p className="mt-2">Upload PDF files to get started with {section}</p>
         </div>
       )} */}
     </div>
