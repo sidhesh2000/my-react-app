@@ -57,6 +57,7 @@ function Carosel() {
                         className={item.avatarClass}
                         alt=""
                         src={item.avatar}
+                        style={{borderRadius:"2rem"}}
                       />
                       <div gla={item.gatsbyClass}>
                         

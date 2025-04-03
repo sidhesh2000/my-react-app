@@ -15,12 +15,13 @@ function PdfUploader({ section, func }) {
   const [isEditing, setIsEditing] = useState(null);
   const [editedHtml, setEditedHtml] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [activeDocumentId, setActiveDocumentId] = useState(null);
+  const [filterDocumentId, setFilterDocumentId] = useState(null); // For edit/delete filtering
 
   const mainDocRef = useMemo(() => 
     doc(db, 'pdfDocuments', section), 
     [section]
   );
+
   useEffect(() => {
     const fetchDocuments = async () => {
       setIsLoading(true);
@@ -28,10 +29,8 @@ function PdfUploader({ section, func }) {
         const docSnap = await getDoc(mainDocRef);
         if (docSnap.exists() && docSnap.data().documents) {
           setPdfDocuments(docSnap.data().documents);
-          setActiveDocumentId(docSnap.data().documents[0]?.id || null);
         } else {
           setPdfDocuments([]);
-          setActiveDocumentId(null);
         }
       } catch (err) {
         console.error("Error fetching documents:", err);
@@ -122,11 +121,7 @@ function PdfUploader({ section, func }) {
     Promise.all(files.map(extractText))
       .then(newDocs => {
         const updatedDocs = [...pdfDocuments, ...newDocs];
-        return saveAllDocuments(updatedDocs).then(() => {
-          if (pdfDocuments.length === 0 && newDocs.length > 0) {
-            setActiveDocumentId(newDocs[0].id);
-          }
-        });
+        return saveAllDocuments(updatedDocs);
       })
       .catch(err => {
         console.error("Upload error:", err);
@@ -139,8 +134,8 @@ function PdfUploader({ section, func }) {
     if (window.confirm("Are you sure you want to delete this PDF document?")) {
       const updatedDocs = pdfDocuments.filter(doc => doc.id !== docId);
       saveAllDocuments(updatedDocs).then(() => {
-        if (activeDocumentId === docId) {
-          setActiveDocumentId(updatedDocs.length > 0 ? updatedDocs[0].id : null);
+        if (filterDocumentId === docId) {
+          setFilterDocumentId(null);
         }
       });
     }
@@ -151,6 +146,7 @@ function PdfUploader({ section, func }) {
     if (document) {
       setIsEditing(docId);
       setEditedHtml(document.htmlData);
+      setFilterDocumentId(docId); // Filter to show only this document when editing
     }
   };
 
@@ -160,28 +156,34 @@ function PdfUploader({ section, func }) {
         ? { ...doc, htmlData: editedHtml, lastUpdated: new Date().toISOString() } 
         : doc
     );
-    saveAllDocuments(updatedDocs).then(() => setIsEditing(null));
+    saveAllDocuments(updatedDocs).then(() => {
+      setIsEditing(null);
+      setFilterDocumentId(null); // Clear filter after saving
+    });
   };
 
-  const handleCancelEdit = () => setIsEditing(null);
-
-  const handleDocumentSelect = (docId) => {
-    setActiveDocumentId(docId);
+  const handleCancelEdit = () => {
     setIsEditing(null);
+    setFilterDocumentId(null); // Clear filter when canceling edit
   };
+
+  // Filter documents based on selection (or show all if no filter)
+  const filteredDocuments = filterDocumentId 
+    ? pdfDocuments.filter(doc => doc.id === filterDocumentId)
+    : pdfDocuments;
+
+  // Combine all HTML content for display when not editing
+  const combinedHtml = filteredDocuments
+    .map(doc => `${doc.htmlData}`)
+    .join('<hr style="margin: 20px 0; border-color: #eee;"/>');
 
   useEffect(() => {
-    if (activeDocumentId) {
-      const activeDoc = pdfDocuments.find(doc => doc.id === activeDocumentId);
-      func(activeDoc?.htmlData || "");
-    } else {
-      func("");
-    }
-  }, [activeDocumentId, pdfDocuments]);
+    func(combinedHtml);
+  }, [combinedHtml]);
 
   return (
-    <div className="container mt-5" style={{ fontFamily: "Inter", fontSize: "large" }}>
-      <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+    <div className="mt-5" style={{ fontFamily: "Inter", fontSize: "12px" }}>
+      <div style={{ display: "flex", justifyContent: "end", gap: "10px" }}>
         <button 
           className="btn btn-primary" 
           onClick={() => document.getElementById(`pdfInput-${section}`).click()}
@@ -194,11 +196,12 @@ function PdfUploader({ section, func }) {
           <div style={{display:"flex",gap:"1rem"}}>
             <select
               className="form-select"
-              value={activeDocumentId || ""}
-              onChange={(e) => handleDocumentSelect(e.target.value)}
+              value={filterDocumentId || ""}
+              onChange={(e) => setFilterDocumentId(e.target.value || null)}
               disabled={isLoading}
               style={{ width: "200px" }}
             >
+              <option value="">All Documents</option>
               {pdfDocuments.map(doc => (
                 <option key={doc.id} value={doc.id}>
                   {doc.fileName}
@@ -206,12 +209,12 @@ function PdfUploader({ section, func }) {
               ))}
             </select>
             
-            {activeDocumentId && !isEditing && (
-              <div className="d-flex justify-content-center gap-3">
-                <div onClick={() => handleEdit(activeDocumentId)} style={{cursor:"pointer"}}>
+            {filterDocumentId && !isEditing && (
+              <div style={{alignItems:"center"}} className="d-flex justify-content-center gap-3">
+                <div onClick={() => handleEdit(filterDocumentId)} style={{cursor:"pointer"}}>
                   <img src={EditIcon} height="20" alt="Edit"/>
                 </div>
-                <div onClick={() => handleDelete(activeDocumentId)} style={{cursor:"pointer"}}>
+                <div onClick={() => handleDelete(filterDocumentId)} style={{cursor:"pointer"}}>
                   <img src={DeleteIcon} height="20" alt="Delete"/>
                 </div>
               </div>
@@ -239,9 +242,9 @@ function PdfUploader({ section, func }) {
         </div>
       )}
 
-      {activeDocumentId && !isLoading && (
+      {pdfDocuments.length > 0 && !isLoading && (
         <div className="mt-3">
-          {isEditing === activeDocumentId ? (
+          {isEditing ? (
             <div>
               <textarea
                 className="form-control mb-2"

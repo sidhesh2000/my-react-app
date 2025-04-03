@@ -35,11 +35,12 @@ const Login = () => {
     <div className="container">
       <div style={{display:"flex",alignItems:"center", height:"100%"}} className="row justify-content-center">
         <div className="col-md-6 col-lg-4">
-        <div style={{width:"max-content"}}className='textAlignCenterCss'>
-            <span className='blackheader'>{`TCS ENTERPRISES `}</span>
-            <span className='blackheader'>CLOUD</span>
-            <span gla="span">{` `}</span>
-            <span className="digitally">PLATFORM</span>
+        <div style={{ display:"flex", justifyContent:"center"}}className='textAlignCenterCss'>
+        <div>
+        <div className='blackheader'>{`TCS ENTERPRISES `}</div>
+        <div className='blackheader'>CLOUD   <span className="digitally">PLATFORM</span></div></div>   
+          
+          
             </div>
           <div className="card shadow">
             <div className="card-body">

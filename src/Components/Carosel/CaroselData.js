@@ -4,7 +4,7 @@ const carouselData = [
       name: 'SATISHCHANDRA DORESWAMY',
       role: 'Vice President and Global Head, Enterprise Cloud, TCS',
       quote:
-        '“ Our solutions enable a resilient and secure hybrid cloud ecosystem that drives innovation and supports next-gen business models to accelerate enterprise growth and transformation.”',
+        '“ Our solutions enable a resilient and secure hybrid cloud ecosystem that drives innovation and supports next-gen business models to accelerate transformation.”',
       avatar: require('../../assets/Avatar1.png'),
       image: require('../../assets/testimonials-line.webp.png'),
       figureClass: 'carosel1',
@@ -20,11 +20,11 @@ const carouselData = [
       quote: '“ Synergizing your IT ecosystems with cloud. “',
       avatar: require('../../assets/Avatar2.png'),
       image: require('../../assets/testimonials-line.webp.png'),
-      figureClass: 'carosel2',
+      figureClass: 'carosel1',
       gatsbyClass: 'divgatsby-image-wrapper1',
       avatarClass: 'avatar-icons1',
       contentClass: 'satishchandra-doreswamy-vice-container',
-      textClass: 'synergizing-your-its',
+      textClass: 'our-solutions-enables',
     },
     {
       id: 3,
@@ -33,11 +33,11 @@ const carouselData = [
       quote: '“ Securing a cloud-first approach “',
       avatar: require('../../assets/avatart_common.avif'),
       image: require('../../assets/testimonials-line.webp.png'),
-      figureClass: 'carosel2',
+      figureClass: 'carosel1',
       gatsbyClass: 'divgatsby-image-wrapper2',
       avatarClass: 'avatar-icons2',
       contentClass: 'arun-kumar-selvaraj-container',
-      textClass: 'secure',
+      textClass: 'our-solutions-enables',
     },
   ];
   
