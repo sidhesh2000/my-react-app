@@ -160,6 +160,7 @@ function HeaderHero(props) {
       className="header-logo"
       alt="TCS Enterprise Cloud Logo"
       src={require('../../assets/TCSECP-Logo.png')}
+      style={{marginLeft:props.leftAlign=="true" ? "3rem":"" }}
     />
     
     {/* Hamburger menu icon for mobile */}

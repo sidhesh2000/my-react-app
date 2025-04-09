@@ -6,7 +6,7 @@ import EditIcon from "../../assets/EditIcon.png";
 import DeleteIcon from "../../assets/DeleteIcon.png";
 import SaveICon from "../../assets/SaveIcon.png";
 import { db, doc, getDoc, setDoc } from '../../firebase';
-
+import { ROOT_URL } from "../RootUrl/rooturl";
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.111/pdf.worker.min.js`;
 
 function PdfUploader({ section, func }) {
@@ -15,8 +15,8 @@ function PdfUploader({ section, func }) {
   const [isEditing, setIsEditing] = useState(null);
   const [editedHtml, setEditedHtml] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [filterDocumentId, setFilterDocumentId] = useState(null); // For edit/delete filtering
-
+  const [filterDocumentId, setFilterDocumentId] = useState(null);
+  
   const mainDocRef = useMemo(() => 
     doc(db, 'pdfDocuments', section), 
     [section]
@@ -24,25 +24,25 @@ function PdfUploader({ section, func }) {
 
   useEffect(() => {
     const fetchDocuments = async () => {
-      setIsLoading(true);
       try {
-        const docSnap = await getDoc(mainDocRef);
-        if (docSnap.exists() && docSnap.data().documents) {
-          setPdfDocuments(docSnap.data().documents);
-        } else {
-          setPdfDocuments([]);
-        }
+        const response = await fetch(`${ROOT_URL}/api/documents/${section}`);
+        const data = await response.json();
+        const mappedData = data.map(doc => ({
+          id: doc.id,
+          fileName: doc.file_name,
+          htmlData: doc.html_data,
+          createdAt: doc.created_at,
+          lastUpdated: doc.last_updated,
+          section: doc.section
+        }));
+        setPdfDocuments(mappedData);
       } catch (err) {
-        console.error("Error fetching documents:", err);
-        setError("Failed to load PDF documents.");
-      } finally {
-        setIsLoading(false);
+        setError("Failed to load documents");
       }
     };
-
     fetchDocuments();
-  }, [mainDocRef]);
-
+  }, [section]);
+  
   const saveAllDocuments = async (documents) => {
     setIsLoading(true);
     try {
@@ -110,37 +110,71 @@ function PdfUploader({ section, func }) {
     });
   };
 
-  const handleFileUpload = (e) => {
-    const files = Array.from(e.target.files);
-    if (files.length === 0) return;
-
-    setIsLoading(true);
-    setError("");
-    e.target.value = "";
-
-    Promise.all(files.map(extractText))
-      .then(newDocs => {
-        const updatedDocs = [...pdfDocuments, ...newDocs];
-        return saveAllDocuments(updatedDocs);
-      })
-      .catch(err => {
-        console.error("Upload error:", err);
-        setError("Failed to process PDF files");
-      })
-      .finally(() => setIsLoading(false));
-  };
-
-  const handleDelete = (docId) => {
-    if (window.confirm("Are you sure you want to delete this PDF document?")) {
-      const updatedDocs = pdfDocuments.filter(doc => doc.id !== docId);
-      saveAllDocuments(updatedDocs).then(() => {
-        if (filterDocumentId === docId) {
-          setFilterDocumentId(null);
-        }
+  const handleFileUpload = async (e) => {
+    const files = e.target.files;
+    const formData = new FormData();
+    
+    for (const file of files) {
+      formData.append('pdfs', file);
+    }
+  
+    try {
+      const response = await fetch(`${ROOT_URL}/api/upload/${section}`, {
+        method: 'POST',
+        body: formData
       });
+      
+      if (response.ok) {
+        const updated = await fetch(`${ROOT_URL}/api/documents/${section}`);
+        const data = await updated.json();
+        const mappedData = data.map(doc => ({
+          id: doc.id,
+          fileName: doc.file_name,
+          htmlData: doc.html_data,
+          createdAt: doc.created_at,
+          lastUpdated: doc.last_updated,
+          section: doc.section
+        }));
+        setPdfDocuments(mappedData);
+      }
+    } catch (err) {
+      setError("Upload failed");
     }
   };
 
+ // For delete operation
+const handleDelete = async (id) => {
+  if (window.confirm("Delete this document?")) {
+    await fetch(`${ROOT_URL}/api/document/${id}`, { // Note singular endpoint
+      method: 'DELETE' 
+    });
+    setPdfDocuments(pdfDocuments.filter(doc => doc.id !== id));
+  }
+};
+
+  const handleSaveEdit = async () => {
+    await fetch(`${ROOT_URL}/api/document/${isEditing}`, { // Note endpoint consistency
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ htmlData: editedHtml })
+    });
+    
+    const updated = await fetch(`${ROOT_URL}/api/documents/${section}`);
+    const data = await updated.json();
+    // Re-map the data after update
+    const mappedData = data.map(doc => ({
+      id: doc.id,
+      fileName: doc.file_name,
+      htmlData: doc.html_data,
+      createdAt: doc.created_at,
+      lastUpdated: doc.last_updated,
+      section: doc.section
+    }));
+    setPdfDocuments(mappedData);
+    setIsEditing(null);
+  };
+
+  
   const handleEdit = (docId) => {
     const document = pdfDocuments.find(doc => doc.id === docId);
     if (document) {
@@ -150,17 +184,6 @@ function PdfUploader({ section, func }) {
     }
   };
 
-  const handleSaveEdit = () => {
-    const updatedDocs = pdfDocuments.map(doc => 
-      doc.id === isEditing 
-        ? { ...doc, htmlData: editedHtml, lastUpdated: new Date().toISOString() } 
-        : doc
-    );
-    saveAllDocuments(updatedDocs).then(() => {
-      setIsEditing(null);
-      setFilterDocumentId(null); // Clear filter after saving
-    });
-  };
 
   const handleCancelEdit = () => {
     setIsEditing(null);
@@ -180,6 +203,7 @@ function PdfUploader({ section, func }) {
   useEffect(() => {
     func(combinedHtml);
   }, [combinedHtml]);
+console.log(filteredDocuments,"alldocs");
 
   return (
     <div className="mt-5" style={{ fontFamily: "Inter", fontSize: "12px" }}>
@@ -248,13 +272,13 @@ function PdfUploader({ section, func }) {
             <div>
               <textarea
                 className="form-control mb-2"
-                rows="10"
+                rows="5"
                 value={editedHtml}
                 onChange={(e) => setEditedHtml(e.target.value)}
               />
               <div className="d-flex justify-content-center gap-2">
                 <button className="btn btn-success" onClick={handleSaveEdit}>
-                  <img src={SaveICon} height="20" alt="Save" className="me-2"/>
+                  {/* <img src={SaveICon} height="20" alt="Save" className="me-2"/> */}
                   Save
                 </button>
                 <button className="btn btn-secondary" onClick={handleCancelEdit}>

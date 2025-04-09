@@ -36,9 +36,10 @@ const Login = () => {
       <div style={{display:"flex",alignItems:"center", height:"100%"}} className="row justify-content-center">
         <div className="col-md-6 col-lg-4">
         <div style={{ display:"flex", justifyContent:"center"}}className='textAlignCenterCss'>
-        <div>
-        <div className='blackheader'>{`TCS ENTERPRISES `}</div>
-        <div className='blackheader'>CLOUD   <span className="digitally">PLATFORM</span></div></div>   
+        
+        <div style={{fontSize:"30px"}} className='blackheader'>{`TCS ENTERPRISES `}  <span style={{fontSize:"30px"}} className="digitally">CLOUD PLATFORM</span></div>
+        
+          
           
           
             </div>
@@ -75,13 +76,11 @@ const Login = () => {
                     required
                   />
                 </div>
-                <div className="d-grid gap-2">
-                  <button type="submit" className="btn btn-primary">Login</button>
+                <div style={{paddingTop:"0.5rem", paddingBottom:"0.5rem"}} className="d-grid gap-4 ">
+                  <button  type="submit" className="btn btn-primary">Login</button>
                 </div>
               </form>
-              <div className="mt-3 text-center">
-                <p>Don't have an account? <a href="/signup">Sign Up</a></p>
-              </div>
+            
             </div>
           </div>
         </div>
