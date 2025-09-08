@@ -83,7 +83,8 @@ console.log(currentClick,"clicknew");
       window.removeEventListener("resize", handleResize);
     };
   }, [currentClick]); // initialize event listeners on-mount & clean on-unmount
-  const currentUser = localStorage.getItem('currentUser');
+  const currentUser = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')).username : null;
+
 
   
   const contentStyle = {
@@ -104,7 +105,7 @@ console.log(currentClick,"clicknew");
     /> 
         <header>
           <div className="container" id="solution">
-          <HeaderHero func={pullData}/>
+          <HeaderHero leftAlign="true" func={pullData}/>
           
             <blockquote>
             <span style={{  fontFamily:"Bebas Neue", fontSize:"40px", color:"#000"}}>TCSECP User Guide</span>
@@ -180,22 +181,22 @@ console.log(currentClick,"clicknew");
            by <span>Storage Team</span>
          </div>
 */}  
-   {currentUser =="Admin" ?
+   {currentUser =="1447282" ?
    <div>
    <PdfUploader 
         section="storage"
         func={handleStorageContent}
       />
-   <div
-        
-   style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
-   dangerouslySetInnerHTML={{ __html: first }}
- ></div>
+  
  </div>
    : 
    <div style={{display:"none"}}><PdfUploader section="storage"
-   func={handleNetworkContent} /></div>}
-  
+   func={handleStorageContent} /></div>}
+   <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "unset", right:"6rem" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: first }}
+      ></div>
   <p>
     <span style={{ color: "#004dbb" }}>
       <span style={{ fontFamily: 'inter' }}>
@@ -1314,10 +1315,18 @@ Reporting of buckets provisioned
         <div class="section__content">
         <section>
         <div className="container">
-        <PdfUploader 
+        {currentUser =="1447282" ?
+   <div>
+    <PdfUploader 
         section="network"
         func={handleNetworkContent}
       />
+   
+ </div>
+   : 
+   <div style={{display:"none"}}><PdfUploader section="network"
+   func={handleNetworkContent} /></div>}
+       
        <div
         
         style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
@@ -1856,7 +1865,7 @@ Reporting of buckets provisioned
                 
                  <br/>            
 
-	Once the network policy created, it shall be mapped to the necessary virtual networks.
+  Once the network policy created, it shall be mapped to the necessary virtual networks.
 It can be achieved by edit virtual network and map the policy in the network polices tab.
 
 <br/>    
@@ -3620,7 +3629,7 @@ Add the virtual SNIP in the Address Pair setting of the VM attached virtual port
 <br/><br/>
 <b style={{ color: "#004dbb" , fontWeight:"600"}}>Navigate to OVERLAY - Virtual Networks - Edit</b>
 <br/>
-	Under the advanced option, select the Dynamic Address Learning option.
+  Under the advanced option, select the Dynamic Address Learning option.
   <br/><br/>
                   <b style={{ color: "#004dbb" , fontWeight:"600"}}>Changes required on OEM Citrix </b>
                   <br />
@@ -4044,10 +4053,20 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" id="style-1">
         <section>
         <div className="container">
-        <PdfUploader 
+        {currentUser =="1447282" ?
+   <div>
+     <PdfUploader 
         section="compute"
         func={handleComputeContent}
       />
+   
+ </div>
+   : 
+   <div style={{display:"none"}}>  <PdfUploader 
+   section="compute"
+   func={handleComputeContent}
+ /></div>}
+      
        <div
         
         style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
@@ -5894,10 +5913,20 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" id="style-1">
         <section>
         <div className="container">
-        <PdfUploader 
+        {currentUser =="1447282" ?
+   <div>
+     <PdfUploader 
         section="AlphaDataProtection"
         func={handleAlphaDataProtection}
       />
+  
+ </div>
+   : 
+   <div style={{display:"none"}}>  <PdfUploader 
+   section="AlphaDataProtection"
+   func={handleAlphaDataProtection}
+ /></div>}
+      
        <div
         
         style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
@@ -5951,10 +5980,21 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" >
         <section>
         <div className="container" >
-        <PdfUploader 
+        {currentUser =="1447282" ?
+   <div>
+     <PdfUploader 
         section="Guide"
         func={handleAccessGuide}
       />
+  
+ </div>
+   : 
+   <div style={{display:"none"}}>  
+    <PdfUploader 
+        section="Guide"
+        func={handleAccessGuide}
+      /></div>}
+       
    <div
         
    style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling

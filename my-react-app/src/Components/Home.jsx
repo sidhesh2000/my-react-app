@@ -3,22 +3,50 @@ import SideBar from "./Sidebar";
 import { Hero } from "./Header";
 import './blog.css'
 import  ScrollUpButton from "react-scroll-up-button";
-
+import { useNavigate } from "react-router";
 import ProgressBar from "react-scroll-progress-bar";
 import Minimap from 'react-minimap';
-
-
-
+import PdfUploader from '../Components/PdfUploader/PdfUploader'
+import { useState } from "react";
+import HeaderHero from "./HeaderHero/HeaderHero";
+import Pdf from "pdfjs-dist/build/pdf";
 //import {Helmet} from "react-helmet";
 //import './PageTracker.js';
 
 
 export const Home = () => {
+  const Navigate = useNavigate()
+  const [first, setfirst] = useState()
+  const [second, setSecond] = useState()
+  const [third, setThird] = useState()
+  const [fourth, setFourth] = useState()
+  const [fifth, setFifth] = useState()
+  const [currentClick, setCurrentClick] = useState("");
  //refresh
  const refreshPage = ()=>{
   window.location.reload();
 }
- 
+const handleNetworkContent = (content) => {
+  setSecond( content);
+  // Update your network-related state here
+};
+const handleComputeContent = (content) => {
+  setThird( content);
+  // Update your network-related state here
+};
+const handleStorageContent = (content) => {
+ setfirst(content);
+  // Update your storage-related state here
+};
+const handleAlphaDataProtection = (content) => {
+  setFourth(content);
+   // Update your storage-related state here
+ };
+ const handleAccessGuide = (content) => {
+  setFifth(content);
+   // Update your storage-related state here
+ };
+
    // by default, I initialized expanded to true for responsiveness demo
   // drag the demo window until it is below 375 width to see sidebar collapse
   
@@ -32,26 +60,41 @@ export const Home = () => {
       // write other logic here such as disabling hamburger button
     }
   }
-
+  const pullData = (v) =>{
+    setCurrentClick(v)
+     }
   React.useEffect(() => {
     window.addEventListener("resize", handleResize);
+console.log(currentClick,"clicknew");
 
     handleResize(); // on-component-mount, check already to see if user has a small device
-
+    if(currentClick == "click"){
+      Navigate("/")
+     }
+    
+      if (currentClick == "click1") {
+        Navigate("/?solution")
+      }
+     
+     if(currentClick == "click2"){
+      Navigate("/?products")
+     }
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []); // initialize event listeners on-mount & clean on-unmount
+  }, [currentClick]); // initialize event listeners on-mount & clean on-unmount
+  const currentUser = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')).username : null;
+
 
   
   const contentStyle = {
     marginLeft: sideNavExpanded ? "250px" : "70px", // arbitrary values
     transition: "margin 0.2s ease"
   };
+ 
     return (
       <>
    
-     
           <ScrollUpButton />
          
         
@@ -62,7 +105,7 @@ export const Home = () => {
     /> 
         <header>
           <div className="container" id="solution">
-          <Hero/>
+          <HeaderHero leftAlign="true" func={pullData}/>
           
             <blockquote>
             <span style={{  fontFamily:"Bebas Neue", fontSize:"40px", color:"#000"}}>TCSECP User Guide</span>
@@ -138,8 +181,22 @@ export const Home = () => {
            by <span>Storage Team</span>
          </div>
 */}  
-   
-      
+   {currentUser =="1447282" ?
+   <div>
+   <PdfUploader 
+        section="storage"
+        func={handleStorageContent}
+      />
+  
+ </div>
+   : 
+   <div style={{display:"none"}}><PdfUploader section="storage"
+   func={handleStorageContent} /></div>}
+   <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: first }}
+      ></div>
   <p>
     <span style={{ color: "#004dbb" }}>
       <span style={{ fontFamily: 'inter' }}>
@@ -147,7 +204,7 @@ export const Home = () => {
         <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:""}}><span className="drop">Storage</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             A typical organization will refresh their storage infrastructure
-                every 3-5 years. But between refresh cycles there is often the
+                every 3-5 yearsj. But between refresh cycles there is often the
                 need to purchase additional disk shelves, array fiber port
                 expansions, network switches, software licenses, etc. In recent
                 years, there has also been a need to accelerate performance at
@@ -1258,7 +1315,23 @@ Reporting of buckets provisioned
         <div class="section__content">
         <section>
         <div className="container">
-      
+        {currentUser =="1447282" ?
+   <div>
+    <PdfUploader 
+        section="network"
+        func={handleNetworkContent}
+      />
+   
+ </div>
+   : 
+   <div style={{display:"none"}}><PdfUploader section="network"
+   func={handleNetworkContent} /></div>}
+       
+       <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: second }}
+      ></div>
         <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">Network</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             Use cases for software-defined storage vary by product with
@@ -3980,7 +4053,25 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" id="style-1">
         <section>
         <div className="container">
-          
+        {currentUser =="1447282" ?
+   <div>
+     <PdfUploader 
+        section="compute"
+        func={handleComputeContent}
+      />
+   
+ </div>
+   : 
+   <div style={{display:"none"}}>  <PdfUploader 
+   section="compute"
+   func={handleComputeContent}
+ /></div>}
+      
+       <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: third }}
+      ></div>
             <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">Compute</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             A typical organization will refresh their storage infrastructure
@@ -5822,7 +5913,25 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" id="style-1">
         <section>
         <div className="container">
-           
+        {currentUser =="1447282" ?
+   <div>
+     <PdfUploader 
+        section="AlphaDataProtection"
+        func={handleAlphaDataProtection}
+      />
+  
+ </div>
+   : 
+   <div style={{display:"none"}}>  <PdfUploader 
+   section="AlphaDataProtection"
+   func={handleAlphaDataProtection}
+ /></div>}
+      
+       <div
+        
+        style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+        dangerouslySetInnerHTML={{ __html: fourth }}
+      ></div>
             <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">ADPS</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             A typical organization will refresh their storage infrastructure
@@ -5871,7 +5980,26 @@ Navigate to OVERLAY - Virtual Networks - Create
         <div class="section__content" >
         <section>
         <div className="container" >
-         
+        {currentUser =="1447282" ?
+   <div>
+     <PdfUploader 
+        section="Guide"
+        func={handleAccessGuide}
+      />
+  
+ </div>
+   : 
+   <div style={{display:"none"}}>  
+    <PdfUploader 
+        section="Guide"
+        func={handleAccessGuide}
+      /></div>}
+       
+   <div
+        
+   style={{ position: "relative", minHeight: "100%", overflowY: "auto" }} // Added overflowY for better scroll handling
+   dangerouslySetInnerHTML={{ __html: fifth }}
+ ></div>
             <p style={{color:"#0d0d0d" , fontFamily:"inter", fontSize:"16px"}}><span className="drop">Guide</span> STORAGE HARDWARE – AN ENDLESS BUYING GAME
             <br/>
             A typical organization will refresh their storage infrastructure

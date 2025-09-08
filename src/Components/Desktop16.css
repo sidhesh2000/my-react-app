@@ -5608,6 +5608,7 @@ body {
   z-index: 3;
   position: fixed;
   background-color: white;
+  
    /* Or whatever background color you need */
 }
 
@@ -5682,7 +5683,6 @@ body {
 }
   .timeline {
     position: relative;
-    left: 249px;
     width: 766px;
     height: 270px;
     text-align: center;
@@ -6021,4 +6021,38 @@ body {
   cursor: pointer;
   margin-left: auto;
   padding: 10px;
+}
+.user-info-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.user-info-container:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  margin-bottom: 5px;
+}
+
+.user-info-container:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  margin-bottom: -1px;
+  z-index: 101;
 }

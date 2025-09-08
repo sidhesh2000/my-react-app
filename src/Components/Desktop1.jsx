@@ -48,7 +48,7 @@ import HeaderHero from "./HeaderHero/HeaderHero";
 export const Desktop1 = () => {
 
 
-  const currentUser = localStorage.getItem('currentUser');
+  const currentUser = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')).username : null;
   /*
   const onButtonabsoluteIconClick = useCallback(() => {
     // Please sync "Desktop - 15" to the project
@@ -124,37 +124,79 @@ const toggleMobileMenu = () => {
  
  const [itemsToShow, setItemsToShow] = useState(2);
  const [currentClick, setCurrentClick] = useState("");
+ const [data, setData] = useState(null);
+ const [loading, setLoading] = useState(true);
+ const [error, setError] = useState(null);
  const Pull_Data = (v) =>{
 setCurrentClick(v)
  }
  console.log(window.location.search ,"check");
  
-  useEffect(() => {
-     const handleResize = () => {
-       if (window.innerWidth <= 768) { // Adjust breakpoint for mobile
-         setItemsToShow(1); // Show 1 item on mobile
-       } else {
-         setItemsToShow(2); // Show 2 items on larger screens
-       }
-     };
- if(currentClick == "click" ){
-  handleClick()
- }
- if(currentClick == "click1" || window.location.search == "?solution"){
-  handleClick()
- }
- if(currentClick == "click2" || window.location.search == "?products"){
-  handleClick2()
- }
-     // Initial check
-     handleResize();
- 
-     // Add event listener for window resize
-     window.addEventListener('resize', handleResize);
- 
-     // Cleanup
-     return () => window.removeEventListener('resize', handleResize);
-   }, [currentClick,window.location.search]);
+ useEffect(() => {
+  const fetchInstances = async () => {
+    try {
+      const token = localStorage.getItem("authToken");
+     const projectId = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')).projectId : null // Get project ID from localStorage
+      
+      if (!token || !projectId) {
+        throw new Error("Authentication token or project ID missing");
+      }
+
+      // Fetch instances for the specific project
+      const response = await fetch(`https://nova.tcsecp.com:8774/v2.1/${projectId}/servers/detail`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Auth-Token': token,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setData(data.servers); // Assuming the response contains a 'servers' array
+    } catch (err) {
+      setError(err.message);
+      console.error("Error fetching instances:", err);
+      // You might want to handle token expiration here
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setItemsToShow(1);
+    } else {
+      setItemsToShow(2);
+    }
+  };
+
+  // Fetch instances when component mounts or when project changes
+  fetchInstances();
+
+  // Handle click and routing logic
+  if (currentClick === "click") {
+    handleClick();
+  }
+  if (currentClick === "click1" || window.location.search === "?solution") {
+    handleClick();
+  }
+  if (currentClick === "click2" || window.location.search === "?products") {
+    handleClick2();
+  }
+
+  // Initial resize check
+  handleResize();
+
+  // Add event listener
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup
+  return () => window.removeEventListener('resize', handleResize);
+}, [currentClick, window.location.search]);
    const navigate = useNavigate();
    const handleLearnClick = () => {
     navigate("/learn");
@@ -162,19 +204,22 @@ setCurrentClick(v)
   return (
    <div>
   <HeaderHero func={Pull_Data}/>{/* Closing tag for the outer div */}
-<div ref={ref1} id="">
+{/* 
+    <div ref={ref} id="solution">
+    <Solutions/>
+    </div> */}
+    <div ref={ref1} id="">
 <div className="showen">
   <LandingHero />
 </div>
 <div className="hiden">
   <LandingHeroMb />
 </div>
+{/* <LandingHero /> */}
 </div>
     <div ref={ref} id="solution">
     <Solutions/>
     </div>
-    
-   
    
      <div ref={ref2} id="product">
      <Products/>

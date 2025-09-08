@@ -1,11 +1,12 @@
 import React from 'react'
 import "./LandingHero.css"
+// import landingimg from "./landingnearimg.PNG"
 function LandingHero() {
   return (
    <div>
-    <div className='LandingBg'>
+    <div className='LandingBg' style={{display:"flex", justifyContent:"center"}}>
       <div className="InnerFlexContainer">
-        <div className="InnerCont1">
+        <div style={{width:"100%"}} className="InnerCont1">
           <div>
           <div className='BlackHeading'>Create exponential </div>
           <div className='BlackHeading'>value with hybrid cloud</div>
@@ -44,7 +45,10 @@ function LandingHero() {
             </div>
           </div>
           </div>
-        <div className="InnerCont2"><div className='frame-childrens'></div></div>
+          {/* <div style={{ width: "50%" , height:"100%"}} className="InnerCont2">
+  <img src={landingimg} style={{ width: "100%", height: "auto", objectFit: "contain" }} />
+</div> */}
+
       </div>
 
     </div>

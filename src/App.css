@@ -12,7 +12,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.ant-layout-header {
+  background: #001529 !important;
+  background-image: none !important;
 
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +39,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Change header background and text color */
+.ant-table-thead > tr > th {
+  background-color: #33496e !important; /* Your desired bg color */
+  color: white !important; /* Your desired text color */
+}
+
+/* Optional: Change header hover state */
+.ant-table-thead > tr > th:hover {
+  background-color:#33496e !important;
+}
+
+/* Optional: Change sort icons color */
+.ant-table-thead > tr > th .ant-table-column-sorter .ant-table-column-sorter-inner {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Optional: Change active sort icon color */
+.ant-table-thead > tr > th .ant-table-column-sorter .ant-table-column-sorter-inner-active {
+  color: white;
 }

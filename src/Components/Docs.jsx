@@ -97,7 +97,7 @@ export const Docs = () => {
                   STORAGE HARDWARE – AN ENDLESS BUYING GAME
                 </p>
                 A typical organization will refresh their storage infrastructure
-                every 3-5 years. But between refresh cycles there is often the
+                every 3-5 yearsj. But between refresh cycles there is often the
                 need to purchase additional disk shelves, array fiber port
                 expansions, network switches, software licenses, etc. In recent
                 years, there has also been a need to accelerate performance at

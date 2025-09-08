@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './App.css';
-
+import 'antd/dist/antd.css';
 import { Desktop1 } from "./Components/Desktop1";
 import { ScrollToTop } from './Components/ScrollToTop';
 import { Home } from './Components/Home';

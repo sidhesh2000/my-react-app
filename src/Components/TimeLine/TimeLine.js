@@ -100,6 +100,7 @@ function TimeLine() {
           sustainable growth.
         </div>
       </div>
+      <div style={{display:"flex",justifyContent:"center"}}>
       <div style={{ position: "relative" , marginTop:"1rem" }}>
         <div className="timeline">
           <div className="timeline-child" />
@@ -161,6 +162,7 @@ function TimeLine() {
             src={publicCloudImage}
           />
         </div>
+      </div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import './style_product.css';
 import { Row, Col, Container } from "react-bootstrap";
 import { Hero } from "./Header";
+import { Link } from "react-router-dom";
 export const Products = () => {
   return(
 <>
@@ -46,7 +47,8 @@ Upgrade
       </Col>
       <Col lg-2 >
       <br/>
-    	<button class="button shiny">Log In</button>
+    	<Link >
+      <button class="button shiny">Log In</button></Link>
       </Col>
       </Row>
 
